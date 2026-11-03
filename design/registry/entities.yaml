@@ -123,7 +123,59 @@ items: []
 #   output_range[min, max], added
 # Optional: expression (the actual formula), notes
 
-formulas: []
+formulas:
+  - name: tier_min
+    status: active
+    source: design/gdd/rarity-tier-ladder.md
+    referenced_by:
+      - design/gdd/rarity-tier-ladder.md
+    variables:
+      - T
+    output_range: ["C", "SSS"]
+    expression: "argmin over t in T of rank(t)"
+    notes: "Lowest tier in a non-empty set; ERR_EMPTY on an empty set. Capture Tier Resolution uses it for the lowest-limit-wins rule."
+    added: 2026-11-03
+    revised: ""
+  - name: tier_step
+    status: active
+    source: design/gdd/rarity-tier-ladder.md
+    referenced_by:
+      - design/gdd/rarity-tier-ladder.md
+    variables:
+      - t
+      - delta
+      - N
+    output_range: ["C", "SSS"]
+    expression: "ID_AT[clamp(rank(t) + delta, 1, N)]"
+    notes: "Steps a tier up or down, clamped to the ladder ends; never errors."
+    added: 2026-11-03
+    revised: ""
+  - name: tier_gap
+    status: active
+    source: design/gdd/rarity-tier-ladder.md
+    referenced_by:
+      - design/gdd/rarity-tier-ladder.md
+    variables:
+      - a
+      - b
+    output_range: [-5, 5]
+    expression: "rank(a) - rank(b)"
+    notes: "Signed rank difference; positive when a is above b. Used by Pricing and Scoring if they band by tier distance."
+    added: 2026-11-03
+    revised: ""
+  - name: clamp_to_enabled
+    status: active
+    source: design/gdd/rarity-tier-ladder.md
+    referenced_by:
+      - design/gdd/rarity-tier-ladder.md
+    variables:
+      - t
+      - enabled_cap
+    output_range: ["C", "enabled_cap"]
+    expression: "ID_AT[min(rank(t), rank(enabled_cap))]"
+    notes: "Every system that produces a tier applies it; stored records above the cap are never altered."
+    added: 2026-11-03
+    revised: ""
 
 # Example:
 #
@@ -156,7 +208,25 @@ formulas: []
 #
 # Required fields: name, status, source, referenced_by, value, unit, added
 
-constants: []
+constants:
+  - name: rarity_tier_count
+    status: active
+    source: design/gdd/rarity-tier-ladder.md
+    referenced_by:
+      - design/gdd/rarity-tier-ladder.md
+    value: 6
+    unit: tiers (C, B, A, S, SS, SSS)
+    added: 2026-11-03
+    revised: ""
+  - name: rarity_enabled_cap
+    status: active
+    source: design/gdd/rarity-tier-ladder.md
+    referenced_by:
+      - design/gdd/rarity-tier-ladder.md
+    value: "A"
+    unit: tier ID (highest tier the game may newly produce; MVP)
+    added: 2026-11-03
+    revised: ""
 
 # Example:
 #

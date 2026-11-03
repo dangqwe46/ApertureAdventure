@@ -2,7 +2,7 @@
 
 > **Status**: Draft (unreviewed — see "Gate results" and "Assumptions to confirm")
 > **Created**: 2026-11-03
-> **Last Updated**: 2026-11-03
+> **Last Updated**: 2026-11-03 (Rarity Tier Ladder designed)
 > **Source Concept**: design/gdd/game-concept.md (with design/project-context.md for decided vs unconfirmed items)
 > **Produced by**: `/map-systems` workflow run by the systems-designer subagent without access to the user. Every point where the skill would have asked the user is resolved by a recorded assumption (see "Assumptions to confirm").
 > **Config used**: `modes.rigor: full` (review mode `full`, `docs.density: thorough`, workflow `full`), `modes.automation: guided`, `project.stage: Concept`.
@@ -121,7 +121,7 @@ Rows are numbered in recommended design order. "(inferred)" marks systems not na
 
 | # | System Name | Category | Priority | Status | Design Doc | Depends On |
 |---|-------------|----------|----------|--------|------------|------------|
-| 1 | Rarity Tier Ladder | Core | MVP | Not Started | — | — |
+| 1 | Rarity Tier Ladder | Core | MVP | Designed | [rarity-tier-ladder.md](rarity-tier-ladder.md) | — |
 | 2 | World Time, Weather & Light (inferred) | Core | MVP | Not Started | — | — |
 | 3 | Network Transport & Server Authority | Core | MVP | Not Started | — | — |
 | 4 | Player Movement & Exploration (inferred) | Core | MVP | Not Started | — | — |
@@ -380,10 +380,10 @@ No other cycles were found in the declared graph.
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 45 |
-| Design docs started | 0 |
+| Design docs started | 1 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
-| MVP systems designed | 0/21 |
+| MVP systems designed | 1/21 |
 | Vertical Slice systems designed | 0/7 |
 
 ---
@@ -396,9 +396,9 @@ No other cycles were found in the declared graph.
 |----|------------|------------------|-------------------------|
 | A1 | Layers are assigned by role. Same-layer dependencies are allowed if the dependency is earlier in the order. | Dependency Map | Strict layering (7+ layers). Same design order, different headings. |
 | A2 | Network Transport & Server Authority and Accounts & Server Persistence are **MVP**, so the first playable is already server-authoritative and scores on the server. | Systems 3, 6, 9 | A local single-player first playable with authority added in VS. Faster to playable, but costs a rewrite of the scoring/economy boundary. |
-| A3 | Capture Tier Resolution is **MVP**, with a reduced ladder (for example C–A only). The full C–SSS ladder, supply caps, serials and first-claim stay "Later", as the concept says. | Systems 1, 13 | Tier the MVP purely by gear unlocking subjects (no roll). |
+| A3 | Capture Tier Resolution is **MVP**, with a reduced ladder (for example C–A only). The full C–SSS ladder, supply caps, serials and first-claim stay "Later", as the concept says. | Systems 1, 13 | Tier the MVP purely by gear unlocking subjects (no roll). **DECIDED 2026-11-03** (user): `enabled_cap = A` in rarity-tier-ladder.md. |
 | A4 | The "skill score" limit in the capture rule is **the photo's own final score** against a per-tier minimum, not a player level. Photographer Reputation is a separate, non-gating track. | Systems 12, 13, 30 | Skill is a player stat/level. That would add a Progression system and weaken Pillar 1. |
-| A5 | Six tiers: C, B, A, S, SS, SSS (the concept says "for example"). | System 1 and everything that reads tiers | A different ladder length. Cheap to change only before Gear Catalog is designed. |
+| A5 | Six tiers: C, B, A, S, SS, SSS (the concept says "for example"). | System 1 and everything that reads tiers | A different ladder length. Cheap to change only before Gear Catalog is designed. **DECIDED 2026-11-03** (user): six tiers, see rarity-tier-ladder.md. |
 | A6 | Photo Recipe and its client re-render are **one system**. The concept's capture data (recipe) and display (re-render) share one versioned format. | System 9 | Split into "Photo Recipe" (data/server) and "Recipe Renderer" (client) if the GDD grows too large. |
 | A7 | Scoring's Rarity part reads **subject** tier, which breaks the Scoring <-> Tier cycle. | Systems 12, 13 | Image-tier-based Rarity part would need a two-pass resolution. |
 | A8 | Gallery browsing UI is merged with the Darkroom screen ("Darkroom & Gallery UI"). Shop, sell and inventory share one UI system. | Systems 20, 21 | Separate UI systems per screen. |
