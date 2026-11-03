@@ -176,6 +176,65 @@ formulas:
     notes: "Every system that produces a tier applies it; stored records above the cap are never altered."
     added: 2026-11-03
     revised: ""
+  - name: light_tier
+    status: active
+    source: design/gdd/world-time-weather-light.md
+    referenced_by:
+      - design/gdd/world-time-weather-light.md
+    variables:
+      - light_quality_points
+      - thresholds
+      - enabled_cap
+    output_range: ["C", "SSS"]
+    expression: "clamp_to_enabled(points_to_tier(light quality points))"
+    notes: "World F7. Read by Capture Tier Resolution and Photo Scoring. Without an event the best light is S; SS/SSS only from rare light events."
+    added: 2026-11-03
+    revised: ""
+  - name: world_moment_tier
+    status: active
+    source: design/gdd/world-time-weather-light.md
+    referenced_by:
+      - design/gdd/world-time-weather-light.md
+    variables:
+      - band
+      - weather
+      - event_window
+    output_range: ["C", "SSS"]
+    expression: "see World F10"
+    notes: "World part of the moment tier; Subject & Spirit Behaviour owns the subject part and the combination (recommended tier_max)."
+    added: 2026-11-03
+    revised: ""
+  - name: scene_exposure_value
+    status: active
+    source: design/gdd/world-time-weather-light.md
+    referenced_by:
+      - design/gdd/world-time-weather-light.md
+    variables:
+      - light_condition
+      - band_offset
+      - event
+    output_range: integer EV
+    expression: "see World F12"
+    notes: "Integer scene brightness for Camera Model exposure and Photo Scoring."
+    added: 2026-11-03
+    revised: ""
+  - name: capture_tick
+    status: active
+    source: design/gdd/network-transport-server-authority.md
+    referenced_by:
+      - design/gdd/network-transport-server-authority.md
+      - design/gdd/world-time-weather-light.md
+    variables:
+      - view_tick
+      - expected_tick
+      - VIEW_TOLERANCE_MS
+      - MAX_REWIND_MS
+      - TICK_HZ
+    output_range: [recv_tick - MAX_REWIND_MS*TICK_HZ/1000, recv_tick]
+    expression: "view_tick if within tolerance of expected_tick else expected_tick, clamped to the rewind window"
+    notes: "Network F8. The only capture-time authority; World F13 converts it to server ms."
+    added: 2026-11-03
+    revised: ""
 
 # Example:
 #
@@ -225,6 +284,83 @@ constants:
       - design/gdd/rarity-tier-ladder.md
     value: "A"
     unit: tier ID (highest tier the game may newly produce; MVP)
+    added: 2026-11-03
+    revised: ""
+  - name: world_day_ms
+    status: active
+    source: design/gdd/world-time-weather-light.md
+    referenced_by:
+      - design/gdd/world-time-weather-light.md
+    value: 3780000
+    unit: ms (one world day = 63 real minutes; 160 world days per real week)
+    added: 2026-11-03
+    revised: ""
+  - name: weather_slot_ms
+    status: active
+    source: design/gdd/world-time-weather-light.md
+    referenced_by:
+      - design/gdd/world-time-weather-light.md
+    value: 630000
+    unit: ms (10.5 real minutes, 6 slots per world day)
+    added: 2026-11-03
+    revised: ""
+  - name: max_rewind_ms
+    status: active
+    source: design/gdd/network-transport-server-authority.md
+    referenced_by:
+      - design/gdd/network-transport-server-authority.md
+      - design/gdd/world-time-weather-light.md
+    value: 400
+    unit: ms (largest lag-compensation rewind)
+    added: 2026-11-03
+    revised: ""
+  - name: view_tolerance_ms
+    status: active
+    source: design/gdd/network-transport-server-authority.md
+    referenced_by:
+      - design/gdd/network-transport-server-authority.md
+      - design/gdd/world-time-weather-light.md
+    value: 60
+    unit: ms (client view_tick accepted within this of the server estimate)
+    added: 2026-11-03
+    revised: ""
+  - name: snapshot_hz
+    status: active
+    source: design/gdd/network-transport-server-authority.md
+    referenced_by:
+      - design/gdd/network-transport-server-authority.md
+      - design/gdd/player-movement-exploration.md
+    value: 10
+    unit: Hz (session snapshot rate; also co-op movement replication)
+    added: 2026-11-03
+    revised: ""
+  - name: reconnect_grace_s
+    status: active
+    source: design/gdd/network-transport-server-authority.md
+    referenced_by:
+      - design/gdd/network-transport-server-authority.md
+    value: 60
+    unit: s (seat and state reserved after a disconnect)
+    added: 2026-11-03
+    revised: ""
+  - name: hurry_speed
+    status: active
+    source: design/gdd/player-movement-exploration.md
+    referenced_by:
+      - design/gdd/player-movement-exploration.md
+      - design/gdd/network-transport-server-authority.md
+    value: 5.0
+    unit: m/s (fastest player speed; Network movement allowance and trail check cap)
+    added: 2026-11-03
+    revised: ""
+  - name: trail_rate_solo_hz
+    status: active
+    source: design/gdd/player-movement-exploration.md
+    referenced_by:
+      - design/gdd/player-movement-exploration.md
+      - design/gdd/network-transport-server-authority.md
+    value: 2
+    unit: Hz (solo pose-sample rate for the server trail check)
     added: 2026-11-03
     revised: ""
 

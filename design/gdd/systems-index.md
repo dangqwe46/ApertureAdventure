@@ -2,7 +2,7 @@
 
 > **Status**: Draft (unreviewed — see "Gate results" and "Assumptions to confirm")
 > **Created**: 2026-11-03
-> **Last Updated**: 2026-11-03 (Rarity Tier Ladder designed)
+> **Last Updated**: 2026-11-03 (Rarity Tier Ladder, World Time, Network, Player Movement designed)
 > **Source Concept**: design/gdd/game-concept.md (with design/project-context.md for decided vs unconfirmed items)
 > **Produced by**: `/map-systems` workflow run by the systems-designer subagent without access to the user. Every point where the skill would have asked the user is resolved by a recorded assumption (see "Assumptions to confirm").
 > **Config used**: `modes.rigor: full` (review mode `full`, `docs.density: thorough`, workflow `full`), `modes.automation: guided`, `project.stage: Concept`.
@@ -122,14 +122,14 @@ Rows are numbered in recommended design order. "(inferred)" marks systems not na
 | # | System Name | Category | Priority | Status | Design Doc | Depends On |
 |---|-------------|----------|----------|--------|------------|------------|
 | 1 | Rarity Tier Ladder | Core | MVP | Designed | [rarity-tier-ladder.md](rarity-tier-ladder.md) | — |
-| 2 | World Time, Weather & Light (inferred) | Core | MVP | Not Started | — | — |
-| 3 | Network Transport & Server Authority | Core | MVP | Not Started | — | — |
-| 4 | Player Movement & Exploration (inferred) | Core | MVP | Not Started | — | — |
+| 2 | World Time, Weather & Light (inferred) | Core | MVP | Designed | [world-time-weather-light.md](world-time-weather-light.md) | Rarity Tier Ladder |
+| 3 | Network Transport & Server Authority | Core | MVP | Designed | [network-transport-server-authority.md](network-transport-server-authority.md) | Rarity Tier Ladder |
+| 4 | Player Movement & Exploration (inferred) | Core | MVP | Designed | [player-movement-exploration.md](player-movement-exploration.md) | — (soft contract: Network Transport & Server Authority for pose trail and validation) |
 | 5 | Gear Catalog & Specs | Economy | MVP | Not Started | — | Rarity Tier Ladder |
 | 6 | Accounts & Server Persistence | Persistence | MVP | Not Started | — | Network Transport & Server Authority |
-| 7 | Subject & Spirit Behaviour | Gameplay | MVP | Not Started | — | Rarity Tier Ladder, World Time Weather & Light |
+| 7 | Subject & Spirit Behaviour | Gameplay | MVP | Not Started | — | Rarity Tier Ladder, World Time Weather & Light, Player Movement & Exploration (presence radius) |
 | 8 | Camera Model: Viewfinder & Exposure (inferred) | Gameplay | MVP | Not Started | — | Player Movement & Exploration, Gear Catalog & Specs, World Time Weather & Light |
-| 9 | Photo Recipe & Re-render | Persistence | MVP | Not Started | — | Camera Model, Subject & Spirit Behaviour, World Time Weather & Light, Network Transport & Server Authority |
+| 9 | Photo Recipe & Re-render | Persistence | MVP | Not Started | — | Camera Model, Subject & Spirit Behaviour, World Time Weather & Light, Network Transport & Server Authority, Player Movement & Exploration (camera pose) |
 | 10 | Inventory & Loadout (inferred) | Economy | MVP | Not Started | — | Gear Catalog & Specs, Accounts & Server Persistence |
 | 11 | Currency & Wallet (inferred) | Economy | MVP | Not Started | — | Accounts & Server Persistence |
 | 12 | Photo Scoring | Gameplay | MVP | Not Started | — | Photo Recipe & Re-render, Gear Catalog & Specs, Subject & Spirit Behaviour, World Time Weather & Light |
@@ -380,10 +380,10 @@ No other cycles were found in the declared graph.
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 45 |
-| Design docs started | 1 |
+| Design docs started | 4 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
-| MVP systems designed | 1/21 |
+| MVP systems designed | 4/21 |
 | Vertical Slice systems designed | 0/7 |
 
 ---
