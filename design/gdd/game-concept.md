@@ -101,7 +101,7 @@ Light tier (light quality) --------------------------+    (the lowest limit wins
 Skill score (minimum per tier) ----------------------+     then odds decide the capture)
 ```
 
-Gear sets the ceiling as the lower of the body and lens tiers, so an SSS image needs both to be SSS. The scene and your skill each add a limit, the lowest limit wins, and a roll against the odds below decides whether you get it.
+Gear sets the ceiling as the lower of the body and lens tiers (and of any adapter fitted), so an SSS image needs both to be SSS. The scene and your skill each add a limit, the lowest limit wins, and a roll against the odds below decides whether you get it.
 
 | Image tier | Gear needed         | Scene needed                               | Example chance if all met |
 |------------|---------------------|--------------------------------------------|---------------------------|
@@ -209,11 +209,11 @@ The plan is Godot in 3D, exported to the web with the Compatibility renderer (We
 
 ### Open questions
 
-- [ ] Invented camera brands, or real names (with legal review)?
+- [x] Invented camera brands, or real names (with legal review)? **Decided 2026-11-03: invented brands with real-world specs and mount logic.**
 - [ ] Can players sell photos to each other, or only to NPCs and the market at first?
 - [ ] Is the phone only a starting tool, or a permanent path with its own upgrades?
 - [ ] Does the starting camera cost in-game debt, or a price paid up front?
-- [ ] Which tone: cozy and reflective, mystery and ghost story, or a competitive rival?
+- [x] Which tone: cozy and reflective, mystery and ghost story, or a competitive rival? **Decided 2026-11-03: cozy and reflective, with shy spirits and forgotten memories visible only through a lens.**
 - [ ] Is the gear supply cap global, per season, or per player?
 - [ ] When gear breaks, does it disappear or return to supply?
 - [ ] Is the first claim on a top-tier subject winner-takes-all, or does everyone nearby get a smaller reward?

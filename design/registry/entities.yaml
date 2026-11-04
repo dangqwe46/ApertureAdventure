@@ -235,6 +235,35 @@ formulas:
     notes: "Network F8. The only capture-time authority; World F13 converts it to server ms."
     added: 2026-11-03
     revised: ""
+  - name: gear_ceiling
+    status: active
+    source: design/gdd/gear-catalog-specs.md
+    referenced_by:
+      - design/gdd/gear-catalog-specs.md
+    variables:
+      - body_tier
+      - lens_tier
+      - adapter_tier
+    output_range: ["C", "SSS"]
+    expression: "tier_min of body, lens and any fitted adapter"
+    notes: "Gear F12. Read by Capture Tier Resolution."
+    added: 2026-11-04
+    revised: ""
+  - name: moment_tier
+    status: active
+    source: design/gdd/subject-spirit-behaviour.md
+    referenced_by:
+      - design/gdd/subject-spirit-behaviour.md
+    variables:
+      - subject_moment_tier
+      - world_moment_tier
+      - WORLD_LIFT_STEPS
+      - pose
+    output_range: ["C", "SSS"]
+    expression: "tier_max(subject, tier_min(world, tier_step(subject, +WORLD_LIFT_STEPS))) in ANTICIPATION or DECISIVE poses, else subject"
+    notes: "Subject F14. Read by Capture Tier Resolution."
+    added: 2026-11-04
+    revised: ""
 
 # Example:
 #
@@ -362,6 +391,33 @@ constants:
     value: 2
     unit: Hz (solo pose-sample rate for the server trail check)
     added: 2026-11-03
+    revised: ""
+  - name: world_lift_steps
+    status: active
+    source: design/gdd/subject-spirit-behaviour.md
+    referenced_by:
+      - design/gdd/subject-spirit-behaviour.md
+    value: 1
+    unit: tier steps (max lift of moment by the world)
+    added: 2026-11-04
+    revised: ""
+  - name: guest_idle_days
+    status: active
+    source: design/gdd/accounts-server-persistence.md
+    referenced_by:
+      - design/gdd/accounts-server-persistence.md
+    value: 30
+    unit: days (idle guest purged)
+    added: 2026-11-04
+    revised: ""
+  - name: deletion_grace_days
+    status: active
+    source: design/gdd/accounts-server-persistence.md
+    referenced_by:
+      - design/gdd/accounts-server-persistence.md
+    value: 14
+    unit: days (cancellable deletion window)
+    added: 2026-11-04
     revised: ""
 
 # Example:

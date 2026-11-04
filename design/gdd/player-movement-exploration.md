@@ -255,6 +255,8 @@ The presence_raw formula is defined as:
 
 ### F5. Presence decay (published value)
 
+> Server evaluation (2026-11-04): the server runs this at `TICK_HZ` (30), so `dt` = 1/30 there; the client's 1/60 is presentation only. The server value is authoritative for Subject & Spirit Behaviour.
+
 The presence formula is defined as:
 
 `presence = presence_raw` if `presence_raw ≥ presence_prev`, else `presence_prev − (presence_prev − presence_raw) × (1 − 2 ^ (−dt / presence_half_life))`
@@ -497,7 +499,7 @@ All in data (e.g. `assets/data/movement/movement.json`; path → gameplay-progra
 
 - **"Click to look" overlay** (Web, mouse): centred, shown at start and on any pointer-lock loss; doubles as the pause overlay entry. Text: "Click to look" / "Click again to look" when a lock was refused.
 - **Stance icon** in the exploration HUD's device corner (art bible 7.1 "minimal"): standing or sneaking; pulses when stand-up is blocked.
-- **Presence indicator** (proposed, D10): a small footprint/ripple glyph next to the stance icon with three states (quiet/heard/loud) derived from presence thresholds supplied by Subject Behaviour. Not a number. Shown only near subjects (within 25 m) to keep the HUD clear.
+- **Presence indicator** (proposed, D10): a small footprint/ripple glyph next to the stance icon with three states (quiet/noticed/too close) derived from the intrusion and alarm values owned by Subject Behaviour. Not a number. Shown whenever a subject is within its own reach (up to 30 m) and otherwise hidden, to keep the HUD clear.
 - **Traversal prompts:** contextual "E Climb", "E Vault" at the volume; glyph follows the last used device; never hover-only.
 - **Unstick prompt** after 3 s stuck; "Unstick" also in the pause menu.
 - **Respawn feedback:** 0.4 s fade; no failure text.

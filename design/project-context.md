@@ -20,11 +20,14 @@ Built with Claude Code Game Studios (CCGS). This file is the hand-off from the c
 - **Rarity tiers (for example C to SSS) for both gear and images.** A high-tier image needs high-tier gear (body and lens both SSS for an SSS image) plus subject, moment and light parameters. The chance to capture a high tier is a ratio. Images are unique, and gear has a limited supply based on its tier.
 - Assets should be generated from scratch using only the Claude Code subscription, with no extra paid services.
 
+## Decided later (2026-11-03)
+
+- **Brands:** invented camera brands (e.g. Nokta, Kanro, Fujin) that copy real mount logic and specs. No real brand names.
+- **Tone and setting:** cozy and reflective; forgotten memories and shy spirits that only appear through a lens, with no violence.
+- **Engine:** Godot 4.7.2, GDScript, 3D, Web export with the Compatibility renderer (configured).
+
 ## Proposals from the chat that the user has NOT confirmed
 
-- Setting: forgotten memories and shy spirits that only appear through a lens, with no violence.
-- **Invented camera brands** that copy real mount logic (for example Nokta, Kanro, Fujin), instead of real brand names. Reason: trademark risk in a trading economy. The user asked for real-world assets, so this is still undecided.
-- Engine: Godot 3D, web export with the Compatibility renderer.
 - Selling photos to NPC clients first, with player-to-player trading later.
 - Capture rule: image tier = the lowest of gear ceiling, subject, moment, light and skill limits, then a roll against the odds.
 - Seasonal supply caps, gear wear and crafting, and first-claim on top-tier subjects with shared crew credit.

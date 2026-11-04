@@ -125,9 +125,9 @@ Rows are numbered in recommended design order. "(inferred)" marks systems not na
 | 2 | World Time, Weather & Light (inferred) | Core | MVP | Designed | [world-time-weather-light.md](world-time-weather-light.md) | Rarity Tier Ladder |
 | 3 | Network Transport & Server Authority | Core | MVP | Designed | [network-transport-server-authority.md](network-transport-server-authority.md) | Rarity Tier Ladder |
 | 4 | Player Movement & Exploration (inferred) | Core | MVP | Designed | [player-movement-exploration.md](player-movement-exploration.md) | — (soft contract: Network Transport & Server Authority for pose trail and validation) |
-| 5 | Gear Catalog & Specs | Economy | MVP | Not Started | — | Rarity Tier Ladder |
-| 6 | Accounts & Server Persistence | Persistence | MVP | Not Started | — | Network Transport & Server Authority |
-| 7 | Subject & Spirit Behaviour | Gameplay | MVP | Not Started | — | Rarity Tier Ladder, World Time Weather & Light, Player Movement & Exploration (presence radius) |
+| 5 | Gear Catalog & Specs | Economy | MVP | Designed | [gear-catalog-specs.md](gear-catalog-specs.md) | Rarity Tier Ladder |
+| 6 | Accounts & Server Persistence | Persistence | MVP | Designed | [accounts-server-persistence.md](accounts-server-persistence.md) | Network Transport & Server Authority |
+| 7 | Subject & Spirit Behaviour | Gameplay | MVP | Designed | [subject-spirit-behaviour.md](subject-spirit-behaviour.md) | Rarity Tier Ladder, World Time Weather & Light, Player Movement & Exploration (presence radius), Network Transport & Server Authority |
 | 8 | Camera Model: Viewfinder & Exposure (inferred) | Gameplay | MVP | Not Started | — | Player Movement & Exploration, Gear Catalog & Specs, World Time Weather & Light |
 | 9 | Photo Recipe & Re-render | Persistence | MVP | Not Started | — | Camera Model, Subject & Spirit Behaviour, World Time Weather & Light, Network Transport & Server Authority, Player Movement & Exploration (camera pose) |
 | 10 | Inventory & Loadout (inferred) | Economy | MVP | Not Started | — | Gear Catalog & Specs, Accounts & Server Persistence |
@@ -380,10 +380,10 @@ No other cycles were found in the declared graph.
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 45 |
-| Design docs started | 4 |
+| Design docs started | 7 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
-| MVP systems designed | 4/21 |
+| MVP systems designed | 7/21 |
 | Vertical Slice systems designed | 0/7 |
 
 ---
