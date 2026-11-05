@@ -587,6 +587,8 @@ Tags: **[Logic]** automated gdUnit4 unit test (suggested name) · **[Integration
 
 ## Open Questions
 
+> 2026-11-05 (art direction): the exploring camera changes from over-the-shoulder to an elevated three-quarter view; the first-person viewfinder is unchanged. F3 and its tuning values need updating to match in a `/design-system` retrofit pass.
+
 > 2026-11-05: player yaw must map onto World's clockwise-from-north azimuth for Camera Model F3. After going Home, the player rejoins the field at a fixed entry point (Inventory & Loadout); Zone Access may add travel cost in Vertical Slice.
 
 1. **Deliberate camera roll (Dutch tilt):** is it a Camera Model feature? If yes, R18 sanity check 1 must read Camera Model's roll limit. Owner: Camera Model GDD.

@@ -2,7 +2,7 @@
 
 > **Status**: Draft
 > **Owned By**: art-director
-> **Last Updated**: 2026-11-03
+> **Last Updated**: 2026-11-05 (art direction changed by the user; see "Revision 2026-11-05")
 > **Art Director Sign-Off (AD-ART-BIBLE)**: [Not yet reviewed]
 
 `/art-bible` writes these nine sections in this order and replaces each
@@ -34,33 +34,62 @@ Tags used in this document:
 - **[DEPENDS: tone]**: depends on the tone decision (cozy and reflective / mystery and ghost story / competitive rival).
 - **VERIFY**: an engine or renderer claim that is not covered by the project's pinned engine reference.
 
+### Revision 2026-11-05
+
+The user changed the art direction: **3D stylized with textures, built from free
+Quaternius assets**, replacing flat-shaded untextured low-poly. Also confirmed:
+cozy and reflective tone, spirits and memories visible only through a lens, an
+elevated three-quarter camera while exploring, and a first-person viewfinder when
+shooting. The target stays Godot 4.7.2 Web, Compatibility renderer.
+
+- **The direction itself is the user's decision.** The details below it (texture
+  grading, budgets, how spirits and gear match) are art-director proposals. The
+  ux-designer, technical-artist and AD-ART-BIBLE reviews have still not run.
+- **`[DEPENDS: setting]` and `[DEPENDS: tone]` tags are resolved** by this decision.
+  They stay in the text as markers of what the setting drives.
+- **Unchanged:** "Light is the subject", the lighting presets (2.2), rarity colours
+  and six-blade badge (4.4, 7.3), UI principles, the re-render rule (P4), section
+  numbers and assumption numbers (GDDs cite them).
+- **Evidence:** the Quaternius scene spike, the pack files and pack preview, and
+  `design/art/demo.jpg`, which is a style reference only. Its content must not be
+  copied. The spike was read from
+  `.claude/worktrees/agent-afafb031d63f41d99/prototypes/quaternius-scene-spike/`;
+  it is not yet in the main tree.
+- **Stale until updated:** `design/assets/entity-inventory.md` (ASSET-002),
+  `design/assets/specs/characters-assets.md` and `design/assets/asset-manifest.md`
+  still describe the old direction.
+
 ---
 
 ## Assumptions to confirm
 
-Every choice below was made on the user's behalf. Each lists the alternative.
-The ones tagged with a DEPENDS tag also hang on an open item in
-`design/gdd/game-concept.md`.
+Every choice below was made on the user's behalf unless marked CONFIRMED or
+SUPERSEDED. Each lists the alternative. The ones tagged with a DEPENDS tag also
+hang on an open item in `design/gdd/game-concept.md`. Superseded rows keep their
+number and old wording, because GDDs cite them.
 
 | # | Choice made | Alternative | Depends on |
 |---|---|---|---|
-| A1 | The world has two visual layers: the **naked-eye world** and the **lens world** (the view through the viewfinder), with different grading. Spirits exist only in the lens world. The two-layer system is built so it still works with no spirits (the lens layer becomes a pure "photographer's eye" grade). | One layer only: the viewfinder is a plain HUD over the same image, with no change of grade. | setting |
-| A2 | Tone is **cozy and reflective, with a quiet tint of mystery**: muted, warm-neutral world, light that does the emotional work, nothing frightening. | (a) Mystery and ghost story: darker values, colder palette, more fog and contrast. (b) Competitive rival: brighter, more saturated, louder UI. | tone |
+| A1 | **CONFIRMED 2026-11-05** (spirits and memories are lens-only). The world has two visual layers: the **naked-eye world** and the **lens world** (the view through the viewfinder), with different grading. Spirits exist only in the lens world. The two-layer system is built so it still works with no spirits (the lens layer becomes a pure "photographer's eye" grade). | One layer only: the viewfinder is a plain HUD over the same image, with no change of grade. | setting |
+| A2 | **CONFIRMED 2026-11-05.** Tone is **cozy and reflective, with a quiet tint of mystery**: muted, warm-neutral world, light that does the emotional work, nothing frightening. | (a) Mystery and ghost story: darker values, colder palette, more fog and contrast. (b) Competitive rival: brighter, more saturated, louder UI. | tone |
 | A3 | Gear art is **brand-agnostic**: no maker name or logo is baked into any mesh or texture. The brand mark is a separate, swappable label (a UI data field plus one decal slot). Examples in this document use the invented makers from the concept (Nokta, Kanro, Fujin). | Bake invented brand marks into the models; or use real brand names after legal review. Either way, no real product's industrial design or logo is copied. | brands |
-| A4 | The first playable area is a **small coastal village**: cliff, lighthouse, pier, a few houses, a strip of woodland. Chosen because the concept's own example commission is "the lighthouse at dusk" and because a coast gives open sky for light and time-of-day play. | Forest valley, small town or city street. | setting (partly) |
-| A5 | **Human characters and animals come from CC0 rigged packs** (Quaternius first, Kenney second), recoloured to this palette and given flat-shaded material overrides. asset-forge makes spirits, gear, props and environment. | Code-made rigid-part "mannequin" humans from asset-forge (no skinning; limbs swing on pivots). Cheaper and fully in-house, but walk cycles will look stiff. | none |
-| A6 | Exploration is third-person; taking a photo switches to a first-person viewfinder. | First-person throughout. (Camera perspective is a gameplay and UX decision; this bible only styles it.) | none |
+| A4 | **Still proposed; revised 2026-11-05.** The first playable area is a **small coastal village**: cliff, lighthouse, pier, a few houses, a strip of woodland. Chosen because the concept's own example commission is "the lighthouse at dusk" and because a coast gives open sky for light and time-of-day play. The village is now the half-timbered Quaternius kit (6.1). The installed free packs hold no lighthouse, pier, water or shoreline pieces (8.10). | Forest valley or inland market village, which the kit covers with no gaps but which loses the lighthouse and open sea. | setting (partly) |
+| A5 | **SUPERSEDED 2026-11-05.** New rule: human characters come from Quaternius Universal Base Characters plus Universal Animation Library, keep their textures, and still need outfits (5.1, open). World art comes from Quaternius kits. asset-forge makes gear, spirits and UI only (8.10). *Was:* Human characters and animals come from CC0 rigged packs (Quaternius first, Kenney second), recoloured to this palette and given flat-shaded material overrides. asset-forge makes spirits, gear, props and environment. | Code-made rigid-part "mannequin" humans from asset-forge (no skinning; limbs swing on pivots). Cheaper and fully in-house, but they would not match a textured world. | none |
+| A6 | **SUPERSEDED 2026-11-05 (confirmed by the user).** New rule: an **elevated three-quarter camera** while exploring; taking a photo switches to a first-person viewfinder. *Was:* Exploration is third-person; taking a photo switches to a first-person viewfinder. | First-person throughout. (Camera perspective is a gameplay and UX decision; this bible only styles it.) | none |
 | A7 | **Rarity colours follow the familiar game ladder** (grey, green, blue, violet, amber, prismatic) for C, B, A, S, SS, SSS, and are always backed by the tier letter and an aperture-blade count. | A metal ladder (iron, bronze, silver, gold, platinum, pearl), which reads as more "photographic equipment" but is harder to tell apart at small sizes. | none |
 | A8 | **Six aperture blades are the game's core motif**: the logo, loading spinner, screen transitions and the rarity badge (C = 1 lit blade up to SSS = 6). Six matches the six tiers in the concept. | If the tier ladder changes length, keep six blades and light a fraction; or drop the blade badge and use pips. | none |
 | A9 | **Red means "darkroom" and "shutter is live", never danger.** The game has no danger state (no violence). | Keep red only for errors, as most software does. | none |
-| A10 | Default surface treatment is **flat-shaded, colour-blocked, untextured** geometry. Seamless textures are used only on terrain and large ground planes. | Hand-textured low-poly with UV maps (asset-forge cannot UV-map, so this would need an artist or CC0 sources). | none |
+| A10 | **SUPERSEDED 2026-11-05 (the user's decision).** New rule: world surfaces use the **stylized PBR textures from the Quaternius packs**, downsized for the Web and graded to the palette (A18). Only lens-world subjects and gear stay untextured, because asset-forge cannot UV-map (A20). *Was:* Default surface treatment is **flat-shaded, colour-blocked, untextured** geometry. Seamless textures are used only on terrain and large ground planes. | None; the direction is decided. | none |
 | A11 | UI fonts are **Inter** (interface text) and **IBM Plex Mono** (camera readouts and serial numbers), both under the SIL Open Font License. Confirm each licence on its download page before shipping. | Other OFL fonts, e.g. Atkinson Hyperlegible (stronger on accessibility) or Space Grotesk / Space Mono (more personality). | none |
 | A12 | UI is designed at a **1280x720 reference resolution** (the project's `run` command uses that size) and scales up. | 1920x1080 reference. | none |
 | A13 | The phone and the camera get **different viewfinder skins** (phone: clean rounded touchscreen UI; camera: electronic-viewfinder data strip). | One shared viewfinder for both. | none |
-| A14 | All polycount, draw-call, texture and memory numbers in Section 8 are **starting values** set by the art-director. The technical-artist has not validated them. | Values set by technical-artist profiling on target hardware. | none |
+| A14 | **Revised 2026-11-05.** All polycount, draw-call, texture and memory numbers in Section 8 are **provisional**: set by the art-director from one desktop spike and the pack files, and not yet measured in a browser. The technical-artist has not validated them. | Values set by technical-artist profiling on target hardware. | none |
 | A15 | Asset name prefixes `subj_` (photographable subjects) and `gear_` (bodies, lenses, phones) are added to the CCGS categories. `subj_` is used instead of `spirit_` so names survive if the setting changes. | `spirit_` and `cam_` prefixes; or fold gear into `prop_`. Note: `/asset-audit` may not know the new prefixes yet. | setting |
-| A16 | Section 9 references were chosen by the art-director (no titles came from the user). | Replace with the user's own references. | none |
-| A17 | Spirit design language (soft, rounded, floating, emissive, no faces or a minimal two-dot face). | If spirits are dropped: the same rules apply to "rare moments" (rare animals, light phenomena, weather events). | setting |
+| A16 | **Revised 2026-11-05.** Section 9 references 1 to 5 were chosen by the art-director. The user has since supplied two: the Medieval Village MegaKit preview and `design/art/demo.jpg` (style only). | Replace with the user's own references. | none |
+| A17 | **CONFIRMED 2026-11-05** (setting); extended by A20. Spirit design language (soft, rounded, floating, emissive, no faces or a minimal two-dot face). | If spirits are dropped: the same rules apply to "rare moments" (rare animals, light phenomena, weather events). | setting |
+| A18 | **New 2026-11-05.** Quaternius textures are **graded towards the palette** with material tints, so surfaces stay quieter than the light (4.1). The textures are not repainted. | Use the pack colours as they come. Cheaper and brighter, but the spike's orange roofs then compete with light and subjects. | none |
+| A19 | **New 2026-11-05.** The game uses the **free Standard pack versions** only. They hold a portion of each kit's models, and the preview image may show pieces that are not in them. | Buy the PRO or SOURCE versions for more models and the stylized shaders. This conflicts with the "no extra paid services" decision, so it is the user's call. | none |
+| A20 | **New 2026-11-05.** The figure-ground idea survives as **texture against no texture**: spirits are the only surfaces in the game with no texture at all, which marks them as lens-world (5.3). Gear is physical, so it follows separate matching rules (3.4). | Give spirits a texture of their own. This needs UV-mapped models, which asset-forge cannot make. | setting |
 
 ---
 
@@ -68,8 +97,9 @@ The ones tagged with a DEPENDS tag also hang on an open item in
 
 ### The one-line rule
 
-> **Light is the subject. The world is drawn in quiet, faceted planes so that
-> light, timing and framing are the things a player learns to see.**
+> **Light is the subject. The world is a warm, hand-crafted 3D storybook of
+> textured forms, kept quiet enough that light, timing and framing are the things
+> a player learns to see.**
 
 When any visual decision is ambiguous, ask: *does this make the light, the
 moment or the frame easier to read, or does it compete with them?* Choose the
@@ -78,24 +108,26 @@ option that makes them easier to read.
 **Why this rule.** Aperture scores Light, Moment and Composition directly
 (see Photo evaluation in the concept), and the first pillar says success comes
 from the player's eye. A photography game fails visually if the world is so
-busy that good and bad light look alike. Faceted low-poly is not only a
-web-budget compromise here; it is the right style. Each flat facet takes one
-value from the light, so direction and quality of light show up as clean steps
-of value across a form, the way a painter's value study does. Soft, warm,
-raking light and flat noon light look clearly different on a faceted cliff;
-on a noisy textured one they blur together.
+busy that good and bad light look alike. Stylized textures make the world worth
+photographing: tile, timber and cobble give light something to rake across, and
+the spike's golden-hour street shows long shadows reading well on them. The risk
+is the opposite of the old style's: texture adds noise and strong local colour,
+so soft light and flat noon can blur together on a busy surface. The answer is
+to keep the big forms simple, keep texture detail broad and painted rather than
+fine, and grade surface colour down (A18), so light still does the most visible
+work.
 
 ### Supporting principles
 
 **P1. Light reads first.** *(Pillar 1: Seeing is the skill.)*
-Forms are built so the light on them can be read: large planes, few colours
-per object, values kept in the middle range so that light pushes them up or
+Forms are built so the light on them can be read: large simple masses, broad
+painted texture, values kept in the middle range so that light pushes them up or
 down. Saturation lives mostly in the light and the sky, not in the surfaces.
 
-- *Design test:* when unsure between adding surface detail and keeping a
-  plane clean, keep the plane clean. When unsure about an object's base
-  colour, choose the one that shows the difference between golden hour and
-  noon more clearly (mid-value, low saturation).
+- *Design test:* when unsure between two kit pieces, pick the calmer one. When
+  unsure about a material's tint, choose the one that shows the difference between
+  golden hour and noon more clearly (mid-value, lower saturation). Compare the same
+  view at both times of day; if they look alike, the surface is too strong.
 
 **P2. Every view is frame-worthy, never filled.** *(Pillar 2: Every photo
 matters.)*
@@ -155,6 +187,9 @@ so they get their own table after the states.
 - *Energy:* contemplative.
 - *Mood carrier:* long shadows and the colour of the sky; wind moving grass in
   slow, seeded waves.
+- *Camera:* elevated three-quarter view (A6), looking down at the player and the
+  street. Scenes must read from above as well as at eye level: roofs fill much of
+  this view, so they are the largest colour area on screen (4.1).
 
 **Viewfinder (lens world)** [DEPENDS: setting, for spirits; the grade applies either way]
 - *Emotional target:* focus and quiet anticipation; the world narrows and
@@ -290,31 +325,38 @@ Rules:
   the Compatibility renderer supports in Godot 4.7.2 is not covered by
   `docs/engine-reference/godot/`; assume no volumetric fog until the
   technical-artist confirms.
+- **The sky must keep its gradient.** In the spike, fog tinted the sky to one flat
+  tan and the sun disappeared. Fog separates depth layers; it must not replace the
+  sky bands in the table above.
 
 ---
 
 ## 3. Shape Language
 
-The world uses **two opposed shape families**: the world is faceted and
-angular; the things you photograph are smooth and round. This figure-ground
-contrast is the main reason a subject pops out of a scene, and it is cheap
-(it costs nothing in polygons or materials).
+The game uses **two opposed shape families**: the world is solid, textured and
+hand-built; the things you photograph are smooth, round and untextured. This
+figure-ground contrast is the main reason a subject pops out of a scene, and it
+is cheap (it costs nothing in polygons or materials).
 
-### 3.1 Environment geometry: faceted, planar, calm
+### 3.1 Environment geometry: chunky, hand-built, calm
 
-- Built from large flat facets with hard edges (`smooth_angle: 0` in asset-forge
-  recipes). Facets catch light as clean value steps (P1).
-- Dominant forms: **rectangles and gentle wedges** (houses, piers, cliffs cut
-  into big planes), **tall verticals used sparingly** as landmarks (lighthouse,
-  a single tall tree, a mast), and **long horizontals** (horizon, pier, wall,
-  shoreline) that make natural leading lines.
-- Angles are calm: mostly 90 degrees and shallow slopes. Sharp spiky forms are
-  avoided (P3). Rocks are chunky and broad, not jagged.
-- Natural forms are simplified, not detailed: a tree is 2 to 3 faceted crown
-  masses on a trunk; grass is clumps, not blades.
-- Weathering is shown by **shape**, not texture: a sagging roof line, a
-  leaning post, a missing plank. [DEPENDS: setting, for "forgotten" decay; a
+- Built from the Quaternius modular kits. Their language is the standard: thick
+  timber, chunky cobbles, overlapping tiles, slightly uneven lines, soft bevels.
+  Anything else placed in the world must match that weight.
+- Dominant forms: **steep gables and gentle wedges** (houses, roofs, stairs),
+  **tall verticals used sparingly** as landmarks (lighthouse, a single tall tree,
+  a mast), and **long horizontals** (horizon, path, fence, wall, shoreline) that
+  make natural leading lines.
+- Angles are calm. Sharp spiky forms are avoided (P3): the kit's iron roof
+  ornaments stay off the main views. Rocks are chunky and broad, not jagged.
+- Natural forms are stylized, not realistic: trees have big readable crown masses;
+  grass and flowers are placed as drifts, not single scattered plants (6.3).
+- Weathering uses **shape and kit dressing**: a leaning post, a missing plank,
+  vines on a wall, an overgrown path. [DEPENDS: setting, for "forgotten" decay; a
   lighter version suits any tone]
+- Kit pieces follow the kit's own grid (2-unit walls, 3 m storeys, roofs sized in
+  metres of footprint, per the spike). Doors and shutters need exact placement; the
+  spike only eyeballed them.
 
 ### 3.2 Subject geometry: smooth, round, small
 
@@ -331,7 +373,8 @@ contrast is the main reason a subject pops out of a scene, and it is cheap
 
 ### 3.3 Character geometry (players and NPCs)
 
-- Simple rounded humans from CC0 packs (A5), with simplified hands and faces.
+- Quaternius Universal Base Characters (A5), dressed in simple stylized outfits
+  (5.1, open). Proportions come from that base; they are not chibi.
 - **The camera is the hero shape on a character.** It is slightly larger than
   real-world scale (about 1.2x) so it reads at distance, and it is the
   brightest detail on the figure (lens front ring, strap colour).
@@ -353,6 +396,17 @@ in the game.
 - **Phones are rounded slabs** with a camera bump.
 - Mount differences are shown by a coloured mount-ring index dot and the mount
   code in UI, not by complex geometry.
+- **Matching the textured world.** Gear is a physical object but asset-forge cannot
+  UV-map it, so it matches by other means:
+  - Smooth shading on curves with crisp edges (`smooth_angle` 30 to 60), never flat
+    facets, which would look like a different game beside the kit.
+  - Real material values do the work: `metallic` and `roughness` per part, so rings
+    and trim catch the same sun as the world.
+  - Small chamfer rings and step details stand in for painted edge wear.
+  - Optional shared surface grain from one small `texture_gen.py` tile, projected
+    in the material so no UVs are needed. VERIFY: technical-artist to confirm
+    triplanar mapping is usable on the Compatibility renderer.
+  - Colours stay on the palette; the tier ring (4.4) stays the strongest accent.
 
 ### 3.5 UI shape grammar
 
@@ -365,13 +419,18 @@ The UI is its own language, borrowed from photography, not from the world:
 - **Viewfinder geometry**: thin corner brackets, a rule-of-thirds grid,
   small square focus points, a horizontal exposure scale. Lines only, no
   filled panels inside the frame.
-- Panels are flat, with no bevels or skeuomorphic leather or metal.
+- **Panels are dark rounded cards**: Darkroom Ink at about 85 to 90 % opacity,
+  about 10 px radius at 720p, a thin 1 px lighter edge (Ink Soft or a low-opacity
+  Paper White), no bevels or skeuomorphic leather or metal. The textured world is
+  busier than the old flat one, so UI text always sits on a panel, never directly
+  on the scene (viewfinder readouts excepted, see above). Photo prints keep their
+  sharper 4 px corners, so a photo never reads as a panel.
 
 ### 3.6 Hero versus supporting shapes
 
 | Draws the eye (hero) | Recedes (supporting) |
 |---|---|
-| Subjects (smooth, glowing in lens view) | Ground, walls, rocks (faceted, mid-value, low saturation) |
+| Subjects (smooth, untextured, glowing in lens view) | Ground, walls, roofs, rocks (textured, mid-value, graded down) |
 | The rare event light | Ordinary sky gradient |
 | Landmark verticals (lighthouse) | Repeated props (fences, crates, grass) |
 | The camera on a character | Clothing detail |
@@ -390,6 +449,23 @@ area** at a time, so the eye is never split.
 in the middle of the value range at low to medium saturation, so the time of
 day can visibly warm, cool, brighten and darken them. High saturation is
 reserved for the sky, the event light, subjects and UI rarity cues.
+
+**Grading the Quaternius textures (A18).** The pack colours are louder than this
+principle: under golden light the spike's roofs go strong orange, and they fill
+much of the three-quarter view. Each shared world material gets a tint or a
+saturation pull at import, towards the palette below. The stylized look stays;
+only its strength drops.
+
+| Material | Pull towards | Check |
+|---|---|---|
+| Roof tiles | Driftwood Clay, with some Dusk Slate roofs for variety | no roof is the most saturated area of a frame at noon |
+| Plaster | Weathered White | mid-to-light value, so light can still lift it |
+| Timber | Driftwood Clay, darker | frames the wall without looking black at blue hour |
+| Stone, cobble | Dusk Slate | broad value steps, low contrast between stones |
+| Grass, foliage | Sage | golden hour can still turn it gold; bright red bushes and strong yellow flowers are accents only |
+
+Exact tints are tuned in-engine against the 2.2 presets. Sky and light colours
+stay as listed; nothing here changes a lighting preset.
 
 ### 4.2 Primary palette
 
@@ -507,10 +583,23 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
 - **Archetype:** an everyday outdoors photographer: practical jacket, bag or
   sling, camera or phone. Approachable and unheroic; the person is not the
   fantasy, the eye is.
-- **Source:** CC0 rigged humans (A5). Every imported character is recoloured
-  to the palette and given a flat-shaded material override so it matches
-  asset-forge props. Remove or replace any texture that brings in a different
-  style (realistic skin, photo fabric).
+- **Source:** Quaternius Universal Base Characters (male and female, with
+  hairstyles) animated with the Universal Animation Library (A5). Characters keep
+  their textures, since the world is now textured too. The bases are rigged for
+  Godot, and their textures are graded to the palette like the world (4.1).
+- **OPEN: outfits.** The Universal Base Characters are **underwear base bodies**.
+  No clothing is in the installed packs, so they cannot ship as they are. The user
+  must choose a route:
+  1. A clothing or character pack from a free source, if one fits this rig.
+  2. Outfits painted into the body texture. This is cheap and needs no new mesh, but
+     it needs an artist or a texture tool, and the silhouette stays a bare body.
+  3. Rigid add-ons from asset-forge (jacket shell, bag, hat) attached to bones. This
+     stays in-house, but untextured shells may look stiff beside textured skin.
+  4. Commissioning an artist, or buying a paid version.
+
+  Until this is decided, the base bodies are placeholders only. Check the fit of the
+  Universal Animation Library on the base rig in-engine as well; the installed files
+  have not been tested together.
 - **Customisation** (cosmetic, never tier, per the concept's anti pay-to-win
   rule): jacket colour from a fixed list drawn from the palette, hat, bag,
   camera strap colour. The strap is the player's personal identifier colour.
@@ -523,9 +612,9 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
 
 ### 5.2 NPC clients and townsfolk
 
-- Same base bodies, with **one role silhouette prop** each (Section 3.3) and
-  a muted palette (Clay, Slate, Sage) so they never outshine players or
-  subjects.
+- Same base bodies and the same open outfit question (5.1), with **one role
+  silhouette prop** each (Section 3.3) and a muted palette (Clay, Slate, Sage) so
+  they never outshine players or subjects.
 - A client with a commission to offer carries a small floating Paper White
   "print" icon above the head (UI layer, never in photos).
 
@@ -534,10 +623,26 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
 - **Made in asset-forge** as rigid-part models: floating bodies need no legs
   or skinning, so bob, drift, spin, scale pulse and part rotations (fins,
   tails, rings) are all animated in-engine by rotating named nodes, which
-  asset-forge supports.
+  asset-forge supports. No pack offers spirits, and they are the game's own
+  identity, so this is the right place to make them ourselves.
 - Design rules: soft rounded body, one distinguishing trait (Section 3.2),
   no mouth, at most a minimal two-dot face. Body in a pale tint of Lumen or
   Paper White; glow via an emissive material, not a real light.
+- **Matching the textured world (A17, A20).** Spirits do not try to look like the
+  kit. They are the opposite of it, and that is what makes them belong:
+  - **Spirits are the only surfaces in the game with no texture.** Against painted
+    tile and timber, a clean glowing form reads at once as "not of this world".
+  - Smooth shading (`smooth_angle` 30 to 60), a brighter value than anything around
+    them, and a soft rim so the edge stays clear on busy texture.
+  - They still answer the scene's light: warmer on the sun side at golden hour, so
+    they look present in the place rather than pasted over it.
+  - Glow stays emissive first, with the halo-card fallback in 8.5 and 8.9.
+  - The greyscale test in 6.5 is the pass or fail check, and textured backgrounds
+    make it harder. Test spirits against the busiest kit surfaces, not plain ground.
+- **Lens-only layer.** Spirits and memory traces live on their own render layer
+  that only the viewfinder camera and the photo re-render can see. They must be
+  absent from the exploration camera, so a spirit is never visible by accident in
+  the three-quarter view. How the layer is built: technical-artist.
 - **Tier is visible in design complexity,** not in size or threat: a common
   subject has one body and one trait; an SS or SSS subject adds a second
   orbiting part, a trailing wisp, and its own event light (Section 2.1).
@@ -546,15 +651,18 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
   **decisive pose** (opens fully, holds for a short window, glow peaks). The
   decisive pose must be preceded by a readable anticipation (a pulse or a
   rise) so a skilled player can time it.
-- **Naked eye vs lens:** in the naked-eye view a spirit is invisible or shows
-  only a faint shimmer at most (to be decided in the GDD); in the lens view it
-  is fully visible. [DEPENDS: setting]
+- **Naked eye vs lens:** a spirit's body is visible only through a lens (confirmed
+  2026-11-05). In the naked-eye view the only sign is the faint shimmer defined in
+  `design/gdd/subject-spirit-behaviour.md` F16, which is an effect in the air, not
+  the spirit. On textured surfaces it must stay subtle but findable. [DEPENDS: setting]
 
 ### 5.4 Animals (wildlife role)
 
-- CC0 rigged low-poly animals (Quaternius) recoloured to natural, muted
-  palette tones. Animals are subjects too, so they follow the same pose
-  vocabulary (idle, wary, curious, decisive).
+- CC0 rigged animals (Quaternius) graded to natural, muted palette tones. **No
+  animal pack is installed yet**; any pack chosen must be checked against the
+  textured world before use, because older low-poly packs may be flat-coloured.
+  Animals are subjects too, so they follow the same pose vocabulary (idle, wary,
+  curious, decisive).
 - If the spirit setting is dropped, animals and light phenomena become the
   main rare subjects, and the "tier through complexity" rule applies to their
   markings and to the event light around them.
@@ -574,8 +682,8 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
 - Detail is spent where the photo is taken: subjects are seen through a lens,
   often zoomed in at 85 to 200 mm, so **subjects get the most careful
   silhouettes and pose shapes** of any character.
-- Players and NPCs are mostly seen at mid distance in third-person; facial
-  detail is minimal. Simplify, do not shrink: at distance, keep the camera
+- Players and NPCs are mostly seen at mid distance from the elevated three-quarter
+  camera, but a telephoto can frame them closely; facial detail is minimal. Simplify, do not shrink: at distance, keep the camera
   and the role prop, drop small parts (straps, buttons, pockets).
 - Telephoto lenses mean distant things can be framed large. Any subject that
   can be photographed from far away must still look good when filling the
@@ -588,9 +696,15 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
 
 ### 6.1 Architecture and culture (A4) [DEPENDS: setting, tone]
 
-- **Weathered coastal vernacular**: simple gabled houses, timber and
-  whitewashed walls, stone footings, a pier on posts, a white lighthouse on a
-  cliff. Familiar, slightly old-fashioned, not tied to one real country.
+- **Storybook half-timbered village by the sea**: steep tiled gables, plaster and
+  timber walls, stone footings, balconies and exterior stairs from the Medieval
+  Village MegaKit, plus a pier on posts and a white lighthouse on a cliff.
+  Familiar, slightly old-fashioned, not tied to one real country. Nothing medieval
+  in theme is shown (no weapons, armour or castles): the kit supplies the building
+  style only, and this is a place where people own cameras.
+- **Known gap:** the lighthouse, pier, water and shoreline are not in the installed
+  packs (8.10). In the spike the sea and sand are plain planes, which is the
+  weakest part of the scene. A coast needs real work before this setting is proven.
 - **Story of the place:** a village that was once busier. Some buildings are
   shut, some gardens overgrown, some posts and signs faded. People still live
   here, so it is quiet, not dead. [DEPENDS: setting; the "forgotten memories"
@@ -603,20 +717,25 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
 
 ### 6.2 Texture philosophy
 
-- **Default: flat-shaded colour blocks, no UV textures** (A10). asset-forge
-  models have no UV textures by design, and colour blocks keep the light
-  legible (P1) and the web build light.
-- **Seamless textures only on large ground planes** (grass, sand, cobble,
-  planks on the pier deck) from `texture_gen.py`, recoloured to palette stops,
-  at 256 px. Texture contrast must stay low so ground never competes with
-  subjects.
-- Material variation comes from **roughness and colour**, not texture: wet
-  stone after rain is lower roughness, metal trim is metallic, glass is
-  emissive at night instead of reflective.
-- No PBR photo textures from Poly Haven on gameplay geometry (anti-pillar:
-  not photoreal). Poly Haven HDRIs are not used as visible skies either; skies
-  are procedural gradients to match the time-of-day table. Poly Haven may be
-  used for reference only.
+- **Default: the Quaternius stylized PBR sets** (A10 superseded). World surfaces
+  use the packs' own base colour, normal and roughness or ORM maps. Painted,
+  stylized and broad: this is the look. These are shared trim sheets, so many kit
+  pieces use one material set, which helps both memory and draw calls.
+- **Downsize everything for the Web.** The spike copied the textures at full size
+  (2k and up) and its assets took about 77 MB. Size limits are in 8.6.
+- **Grade at import, do not repaint** (4.1, A18). Keep one shared material per
+  texture set, with tints set once, so the whole village stays consistent.
+- **Ground and terrain.** Large ground planes need their own treatment, since the
+  spike's flat green and sand show a visible repeating pattern. Blend at least two
+  textures, or break the repeat with drifts of kit scatter. `texture_gen.py` tiles
+  may fill a gap, recoloured to palette stops, if they sit well beside the kit.
+- **Texture contrast stays low behind subjects.** Where a subject usually appears,
+  prefer the calmer surfaces (plaster, grass) to the busier ones (cobble, tile).
+- Wet stone after rain is lower roughness; glass is emissive at night instead of
+  reflective. These rules are unchanged.
+- **Never mix styles.** No photo-real textures from Poly Haven on gameplay geometry
+  (anti-pillar: not photoreal). Poly Haven HDRIs are not used as visible skies
+  either; skies are procedural gradients to match the time-of-day table.
 
 ### 6.3 Prop density
 
@@ -630,6 +749,11 @@ Approximate contrast (to be measured with a contrast tool before sign-off):
 
 Rule: **never place a prop where it would sit behind a subject's usual
 position at the same value** as the subject (it would merge into it).
+
+Rule: **scatter is composed, not sprinkled.** In the spike, evenly spread grass and
+flowers read as random clumps. Plants gather in drifts along walls, fence lines and
+path edges, with bare gaps between them, and one flower colour leads per drift.
+Scatter placement is seeded or fixed, so it re-renders the same (P4).
 
 ### 6.4 Environmental storytelling
 
@@ -649,8 +773,9 @@ position at the same value** as the subject (it would merge into it).
 
 ### 6.5 Character versus environment legibility
 
-- Environment: faceted, mid-value, low saturation, low texture contrast.
-- Subjects: smooth, lighter or glowing, higher saturation, cleaner
+- Environment: textured, mid-value, graded down (4.1), low texture contrast
+  behind subject positions.
+- Subjects: smooth, untextured, lighter or glowing, higher saturation, cleaner
   silhouettes.
 - Players: mid-value with one bright strap and the camera as the brightest
   small detail.
@@ -686,6 +811,11 @@ position at the same value** as the subject (it would merge into it).
 - **Exploration HUD is minimal**: a small device icon (phone or camera with
   battery and shots left), a compass strip (UX check), and context prompts.
   The world should be almost clear of UI, so a player is always composing.
+- **Panel style in play**: any HUD element over the world uses the dark rounded
+  cards from 3.5: compact chips at the screen edges, grouped so the centre stays
+  clear. `design/art/demo.jpg` is a useful reference for this card style and for
+  bright, legible text on dark over a detailed 3D scene. Take the styling, not its
+  content, theme or density: that screen is much fuller than Aperture wants (7.6).
 - **Nothing UI is ever in a stored photo** (P4).
 
 ### 7.2 Typography
@@ -760,23 +890,46 @@ need a ux-designer position before a decision by the user:
    feel like a real camera; UX may want it larger.
 4. **Lumen focus lock versus colour vision.** Backed up by brackets closing
    (shape change); UX to confirm that is enough.
+5. **Clear world versus online UI.** Art wants the exploration view almost free of
+   UI; an online game may need chat, party and quest panels on screen. Proposed
+   compromise: those panels collapse to small chips when not in use. UX to confirm.
+6. **Thin viewfinder lines over textured scenes.** White 1 px brackets and grids sit
+   directly on the image and may get lost on busy texture. A soft dark line behind
+   them is the likely fix; test in-engine. UX to confirm.
 
 ---
 
 ## 8. Asset Standards
 
 > **Not reviewed by technical-artist.** Every number below is an art-director
-> starting value (A14). The project's performance targets given for this
+> value (A14). The project's performance targets given for this
 > draft are: 60 fps, at most 500 draw calls, 512 MB memory, Godot 4.7.2,
 > Compatibility renderer, Web export (WebGL 2). Note: `project.yaml` has no
 > `performance` block yet, so these targets are not recorded in config.
+>
+> **All budgets in 8.3, 8.4 and 8.6 are PROVISIONAL until measured on the Web.**
+> The only data so far is below. It is desktop only, and browser frame rate and
+> load time have never been measured for this art.
+>
+> | Measured in the first scene (spike, 2026-11-05) | Value |
+> |---|---|
+> | Draw calls (includes shadow pass, desktop Compatibility, 1280x720) | about 640, over the 500 budget |
+> | Triangles (same measure) | about 200,000 to 220,000 |
+> | Objects per frame | about 660 |
+> | Copied assets on disk | about 77 MB, mostly 2k+ PNG textures |
+> | Web build, uncompressed | about 94 MB: `index.pck` 58 MB, `index.wasm` 39.5 MB |
+>
+> The spike had no optimisation at all, so these numbers are an upper starting
+> point: separate nodes, full-size textures, no merging or instancing.
 
 ### 8.1 File formats
 
 | Asset type | Format | Made by |
 |---|---|---|
-| 3D models | `.glb` | asset-forge `model_glb.py`; CC0 packs for rigged characters and animals |
-| Seamless textures | `.png`, power of two (+ `_n.png` normal map only where needed) | asset-forge `texture_gen.py` |
+| 3D models, world and characters | `.gltf` + `.bin` or `.glb` as supplied | Quaternius packs (8.10) |
+| 3D models, gear and spirits | `.glb` | asset-forge `model_glb.py` |
+| World textures | `.png` from the packs, downsized (8.6) | Quaternius packs |
+| Seamless textures | `.png`, power of two (+ `_n.png` normal map only where needed) | asset-forge `texture_gen.py`, gap-filling only (6.2) |
 | UI, icons, HUD | `.svg` (Godot imports directly); `.png` only where needed via `svg_raster.py` | asset-forge (SVG written directly) |
 | Pixel sprites | `.png` + frame `.json` | asset-forge `pixel_sprite.py` (limited use: e.g. stylised effect frames, small found-photo stickers) |
 | Recipes (source of truth) | `.json` in `design/assets/recipes/` | asset-forge |
@@ -812,48 +965,74 @@ CC0 imports keep their licence and source URL recorded in
 `design/assets/asset-manifest.md` (per asset-forge's free-sources reference),
 and are renamed to this convention on import.
 
-### 8.3 Polygon budgets (triangles, starting values)
+### 8.3 Polygon budgets (triangles, PROVISIONAL)
 
-| Category | Budget | Notes |
-|---|---|---|
-| Small prop (cup, sign, lens cap) | 50-300 | |
-| Medium prop (crate, bench, boat) | 300-800 | |
-| Rock | 40-150 | asset-forge low-segment sphere pattern |
-| Tree | 200-500 | `merge: true` |
-| House / building | 800-1,500 | |
-| Hero landmark (lighthouse) | up to 3,000 | one per area |
-| Subject, common | 400-1,200 | smooth parts, rigid animation |
-| Subject, SS / SSS | up to 2,000 | extra orbiting parts |
-| Player / NPC (CC0) | up to 3,000 | decimate if the pack model is heavier |
-| Animal (CC0) | up to 2,500 | |
-| Held camera body / lens | 300-600 / 150-400 | seen in third-person and in shop |
-| Gear shop close-up model | up to 1,500 | can be a separate LOD0 of the held model |
-| Visible scene total | target 150,000 or fewer | to be profiled |
+The old budgets were sized for hand-made low-poly. Quaternius assets are much
+heavier, so the budgets below start from real pack counts (read from the glTF
+files, 2026-11-05).
+
+| Category | Measured in the pack | Budget (LOD0) | Notes |
+|---|---|---|---|
+| Small prop (crate, sign) | crate 230 | 50-300 | |
+| Medium prop (wagon, bench, boat) | not measured | 300-1,500 | |
+| Wall section | plaster wall 86 | up to 300 | |
+| Roof piece | 6x8 round tiles 3,796 | up to 4,000 | the heaviest kit piece found; check every roof |
+| Assembled house | not measured | up to 15,000 | merged by material |
+| Hero landmark (lighthouse) | no pack piece | up to 15,000 | one per area |
+| Rock | medium rock 342 | up to 400 | |
+| Tree | pine 3,947; common tree 6,265 | up to 6,500, with LOD1 at 1,500 or fewer | at most 8 at LOD0 in any view |
+| Grass or flower clump | tall grass 326 | up to 350 | instanced; about 100 near the camera |
+| Subject, common | n/a | 400-1,200 | smooth parts, rigid animation |
+| Subject, SS / SSS | n/a | up to 2,000 | extra orbiting parts |
+| Player / NPC | base body with hair about 14,300 | up to 15,000 near; 5,000 at LOD1 | outfits add to this; at most 4 at LOD0 in view |
+| Animal | no pack chosen | up to 5,000 | |
+| Held camera body / lens | n/a | 300-600 / 150-400 | seen on the character and in shop |
+| Gear shop close-up model | n/a | up to 1,500 | can be a separate LOD0 of the held model |
+| **Scene total** | about 200,000-220,000 | **target 150,000; ceiling 200,000** | counted as the spike did, so the shadow pass is included |
+
+Suggested split of the 150,000 target: buildings 60,000, trees 30,000, scatter
+and rocks 25,000, characters 20,000, subjects and gear 5,000, everything else
+10,000.
 
 ### 8.4 Draw calls (500 max)
 
-Starting allocation per view:
+The 500 limit stays as the **ceiling, now counted including the shadow pass**, the
+way the spike measured it. The working target is **400**, to leave room for slower
+browsers. The spike's 640 had no merging or instancing, so this should be reachable,
+but that is unproven. If merging cannot reach 500, raise it; do not quietly raise
+the budget.
+
+Provisional allocation per view:
 
 | Group | Budget |
 |---|---|
-| Environment (terrain, buildings, props, foliage) | 250 |
+| Environment, main pass (terrain, buildings, props, foliage) | 200 |
+| Shadow pass | 100 |
 | Characters, subjects and held gear (4 players + NPCs + subjects) | 60 |
-| Effects (motes, water, glow cards) | 40 |
-| UI | 100 |
+| Effects (motes, water, glow cards) | 30 |
+| UI | 60 |
 | Headroom | 50 |
+
+Target for objects per frame: **300 or fewer** (spike: about 660).
 
 Rules:
 
-- Static scenery uses `merge: true` in asset-forge recipes (one draw call per
-  material, per the asset-forge model reference).
-- **Shared palette materials.** Use the same small set of material names and
-  colours across assets, and on import share them as one material library
-  rather than one copy per model, so assets can share state. Exact import
-  settings: technical-artist.
+- **Merge static kit pieces.** Each finished house becomes one mesh per shared
+  material, not dozens of nodes. This is the largest saving available. asset-forge
+  models use `merge: true` as before. How to merge at import or in the scene:
+  technical-artist. Merged buildings still need their LODs and shadow settings.
+- **Shared materials.** Every kit piece using a texture set shares one material
+  from a library, rather than one copy per imported file, so assets can share
+  state. Exact import settings: technical-artist.
 - Repeated scatter (grass clumps, rocks, fence posts) uses instancing
   (`MultiMeshInstance3D`) rather than individual nodes.
-- Materials per model: **3-6** (asset-forge guidance), and props should
-  aim for 3 or fewer.
+- **Limit shadow casters.** Grass, flowers, pebbles and small props cast no shadows.
+  Buildings, trees and characters do, because those shadows are what the player
+  reads (P1).
+- Materials per asset-forge model: **3-6** (asset-forge guidance), and props
+  should aim for 3 or fewer.
+- Any outline or second material pass doubles a mesh's draw calls (chibi toon
+  spike), so none is planned for this direction.
 
 ### 8.5 Materials, lighting and effects
 
@@ -863,7 +1042,12 @@ Rules:
   materials.
 - **Avoid alpha blending.** At most one alpha-blended layer in any view
   (e.g. one spirit wisp or the beam motes). Spirits are opaque with emissive
-  and a rim effect, not see-through.
+  and a rim effect, not see-through. Leaves, grass and vines use hard cut-out
+  transparency (alpha scissor), not blending. VERIFY: how each pack material
+  imports, and the cost of large areas of cut-out foliage on the Web.
+- **PBR maps cost fragment time.** Every normal and roughness or ORM map is an
+  extra texture read per pixel on a Web GPU. Keep them where they help the light
+  read (8.6). VERIFY: real cost, measured in a browser on low-end hardware.
 - **One shadow-casting directional light.** Real local lights only where light
   must fall on other surfaces. VERIFY: per-object light limits in the
   Compatibility renderer are not covered by `docs/engine-reference/godot/`.
@@ -884,20 +1068,34 @@ Rules:
 
 ### 8.6 Textures and memory (512 MB total)
 
-| Tier | Size | Use |
-|---|---|---|
-| Standard | 256 px | terrain and ground textures (asset-forge default for web) |
-| Close-up | 512 px | darkroom table, gallery wall, gear shop surfaces |
-| UI atlas or large UI | up to 1024 px | only if SVGs are rasterised into an atlas |
-| Not allowed | above 1024 px | |
+Pack textures are 2k and larger as supplied (spike). All are downsized on import.
+
+| Use | Base colour | Normal | Roughness / ORM |
+|---|---|---|---|
+| Village trim sets (wall, roof, timber, stone) | 1024 px | 512 px | 512 px |
+| Foliage, bark, flowers, grass | 512 px | none, or 256 px on bark | none |
+| Characters (skin, hair, outfit) | 512 px | none | none |
+| Ground and terrain | 512 px | 256 px on cobble | none |
+| Close-up interiors (darkroom table, gallery wall, shop) | 512 px | none | none |
+| asset-forge tiles | 256 px | only where needed | none |
+| UI atlas or large UI | up to 1024 px | | only if SVGs are rasterised into an atlas |
+| Not allowed | above 1024 px | | |
 
 - Power-of-two sizes only (asset-forge requirement for textures).
-- Normal maps only where they help light reading (cobble, planks); most
-  surfaces need none.
-- Starting texture memory budget: **64 MB per loaded scene**, leaving the rest
-  of the 512 MB for engine, audio, meshes, networking and browser overhead.
+- A scene loads only the texture sets it shows.
+- Texture memory budget stays **64 MB per loaded scene**, leaving the rest of the
+  512 MB for engine, audio, meshes, networking, the photo cache and browser overhead.
+  The Photo Recipe GDD builds on this figure.
+- **Worked estimate, uncompressed with mipmaps:** one village set is about 8 MB
+  (5.3 + 1.3 + 1.3), six sets about 48 MB, eight 512 px foliage textures about
+  11 MB, and characters about 5 MB. Total about 64 MB. That is **exactly at the
+  limit with no spare room**, so GPU texture compression or fewer sets is needed.
   VERIFY: web texture compression formats and their Godot 4.7.2 web export
   settings are not covered by the pinned engine reference.
+- **Download budget (provisional):** `index.pck` for the first area **24 MB or
+  less** (spike: 58 MB), so about 64 MB uncompressed with `index.wasm`. Later areas
+  load on demand. Measure the real transfer size with server compression on,
+  because that, not the file size, is what a player waits for.
 - Skies are procedural gradients (no HDRI files), saving memory and matching
   Section 2.2.
 
@@ -915,6 +1113,11 @@ LOD choice for subjects and characters must consider the active focal
 length (Section 5.6). Whether to use Godot's automatic mesh LOD or hand-made
 LODs from asset-forge recipes: technical-artist.
 
+Treat Quaternius assets as having no LODs until checked. Trees and characters are
+heavy, so LOD1 is required for them, not optional (8.3). VERIFY: how well
+generated LODs keep the look of cut-out foliage, and whether they work on the
+Compatibility renderer.
+
 ### 8.8 Export and import settings
 
 - Units in metres, +Y up, model front faces +Z, origin at the base (y = 0)
@@ -922,9 +1125,12 @@ LODs from asset-forge recipes: technical-artist.
   (asset-forge model reference).
 - Parts that animate keep their own named nodes (`merge: false`); everything
   static is merged.
-- Flat shading is the default (`smooth_angle: 0`); subjects use 30-60.
+- asset-forge models in this game are gear and spirits, so both use `smooth_angle`
+  30-60. Flat shading (`smooth_angle: 0`) is no longer used for shipped models.
 - Recipes are the source of truth: edit the recipe and regenerate, never
   hand-edit a generated binary.
+- Pack files are not edited in place. Downsizing, tints and merges happen at import
+  or in the project copy, so a clean pack can always be re-imported.
 - Folder layout as in asset-forge's engine-import reference
   (`assets/art/models/`, `assets/art/textures/`, `assets/art/ui/`, ...).
 
@@ -937,14 +1143,57 @@ LODs from asset-forge recipes: technical-artist.
 | Spirits | slightly translucent | alpha cost on web | opaque + emissive + rim |
 | Dynamic lights | many warm window lights at blue hour | light limits per object (VERIFY) | emissive windows, few real lights |
 | Shadow quality | soft long shadows at golden hour | shadow cost on web | one directional shadow; quality setting by technical-artist |
+| Texture detail | pack textures at high size with all PBR maps | download size, memory and fragment cost | 8.6 size limits; drop maps first on low-quality settings |
+| Foliage | full pack trees everywhere | 4,000 to 6,300 triangles each; cut-out cost (VERIFY) | 8 at LOD0, LOD1 beyond |
+
+### 8.10 Asset sourcing
+
+| Source | What it supplies | Why |
+|---|---|---|
+| **Medieval Village MegaKit** (Standard) | walls, roofs, floors, stairs, balconies, doors, windows, village props | the world's style standard; modular, shared texture sets |
+| **Stylized Nature MegaKit** (Standard) | trees, bushes, grass, flowers, rocks, pebbles, path pieces | same stylized PBR language as the village |
+| **Universal Base Characters** (Standard) | human bases, hairstyles | rigged bases; outfits are open (5.1) |
+| **Universal Animation Library** (Standard) | humanoid animation | walk, idle and similar; poses in 5.1 still need checking against what it holds |
+| **asset-forge: gear** | bodies, lenses, phones | no pack has them; they need exact spec-driven shapes (3.4), many variants from recipes, and no copied real products |
+| **asset-forge: spirits** | all subjects from 5.3 | they are the game's own identity, and rigid-part floating bodies suit the tool |
+| **asset-forge: UI** | SVG icons, badges, panels, aperture motif | no pack holds this design language |
+| **Engine-built** | water, sky, particles, lens effects | shaders and particles, by the technical-artist |
+
+asset-forge **no longer makes environment or props**, so that the world keeps one
+hand. Exceptions need a reason, such as the gaps below.
+
+**Gaps in the installed packs (open):** lighthouse, pier, boats, shoreline, sea,
+animals, clothing, and darkroom, gallery and shop props. Each needs a route: another
+free pack, kit-bashing from existing pieces (for example, a lighthouse from stone
+walls and `Roof_Tower_RoundTiles`), or a recipe that follows 3.4's matching rules.
+
+### 8.12 Decisions recorded 2026-11-06 (user)
+
+- Outfits: download free outfit packs and compare.
+- Setting: keep the coastal village; build the lighthouse and pier from kit pieces, other packs or asset-forge.
+- Packs: free Standard versions only.
+- Repository: public, so third-party assets stay out of git.
+
+### 8.11 Licence note
+
+- The installed pack files (`License_Standard.txt`, `License.txt`) all state **CC0 1.0**.
+- The site's newer **Quaternius Asset License (QAL) v1.0** (quaternius.com/license.html, read 2026-11-05) allows free personal and commercial use in games with no credit, and forbids redistributing the assets themselves as assets or packs, free or paid, even modified. Distributing a finished game that contains them is allowed.
+- **Working rule, safe under either licence:**
+  - Keep raw packs out of public repositories.
+  - Ship only what the game uses, inside the game build.
+  - Never publish the assets as a pack, a source mirror or a template.
+- Check whether the prototype copy under `assets/` is in any repository that may go
+  public. `.gitignore` and repository visibility are worth a look before the next push.
+- Log each pack, its source URL, the licence file's wording and the download date in
+  `design/assets/asset-manifest.md` (8.2).
 
 ---
 
 ## 9. Reference Direction
 
-Chosen by the art-director (A16). The five references point in different
+References 1 to 5 were chosen by the art-director (A16). They point in different
 directions on purpose: camera UI, subject behaviour, colour of light,
-composition, and spirit character.
+composition, and spirit character. References 6 and 7 came from the user.
 
 **1. Umurangi Generation (Origame Digital, 2020): camera feel and lens
 swapping**
@@ -961,11 +1210,10 @@ and scoring presentation**
   subjects are shy and muted, and the player chooses where to stand.
 
 **3. Firewatch (Campo Santo, 2016): colour of light over time**
-- *Take:* large flat colour fields, strong time-of-day palettes where each
-  hour has its own sky and shadow colour, and aerial perspective in layered
-  depth.
-- *Avoid:* the painterly textured surfaces and the near-monochrome orange
-  grade. We keep surfaces untextured and let each time of day differ.
+- *Take:* strong time-of-day palettes where each hour has its own sky and shadow
+  colour, and aerial perspective in layered depth.
+- *Avoid:* the near-monochrome orange grade. We let each time of day differ. The
+  spike's single warm tint across the whole frame is exactly this mistake.
 
 **4. Fan Ho and Saul Leiter (street photographers, 1950s-60s):
 composition of light**
@@ -984,7 +1232,21 @@ Mononoke, 1997): spirit character** [DEPENDS: setting]
   likely to read as eerie. Our spirits are geometric, glowing and built from
   rounded primitives.
 
-Production baseline (not a style reference): Kenney and Quaternius CC0 packs
-set the realistic quality bar for code-assisted low-poly; imported assets
-must be recoloured and re-materialled to this bible rather than used in their
-original colours.
+**6. Quaternius Medieval Village MegaKit preview image (user-supplied): the target
+world**
+- *Take:* rich stylized surfaces, warm light on plaster and timber, a blue sky with
+  painted clouds, a winding path as a leading line, overgrown edges. This is the
+  quality bar for the village.
+- *Avoid:* assuming it is reachable as shown. It is a high-end offline-quality
+  render, probably using the paid kit and custom shaders, not the free kit on the
+  Web Compatibility renderer. The spike is well below it. Its dense, strong colour
+  is also louder than 4.1 allows.
+
+**7. `design/art/demo.jpg` (user-supplied): style only**
+- *Take:* the elevated three-quarter framing of a small, readable place, and dark
+  rounded HUD cards with clear text over a detailed scene.
+- *Avoid:* **all of its content**: its setting, theme, characters, text and
+  game ideas must not be copied. Also avoid its screen density (7.1, 7.6).
+
+Production baseline (not a style reference): the Quaternius packs set the
+world's style. Imported assets are graded to this bible (4.1, A18), not repainted.

@@ -25,6 +25,7 @@ Built with Claude Code Game Studios (CCGS). This file is the hand-off from the c
 - **Brands:** invented camera brands (e.g. Nokta, Kanro, Fujin) that copy real mount logic and specs. No real brand names.
 - **Tone and setting:** cozy and reflective; forgotten memories and shy spirits that only appear through a lens, with no violence.
 - **Engine:** Godot 4.7.2, GDScript, 3D, Web export with the Compatibility renderer (configured).
+- **Art style (2026-11-05):** 3D stylized with textures, built from free Quaternius assets (Stylized Nature, Medieval Village, Universal Base Characters and Animation Library). Replaces the flat low-poly direction and the chibi test. Elevated three-quarter camera while exploring, eye-level viewfinder when shooting. `design/art/demo.jpg` is a style reference only. Raw packs live in `D:/Tools/downloads-quaternius/`.
 
 ## Proposals from the chat that the user has NOT confirmed
 
@@ -40,7 +41,7 @@ See "Open questions" in `design/gdd/game-concept.md` (brands, player-to-player s
 
 - The Godot reference in `docs/engine-reference/godot/modules/networking.md` uses ENet, which does **not** work in web exports. Use WebSocket or WebRTC with a server-authoritative design.
 - A photo is stored as a recipe (camera position, settings, time of day, subject pose), not an image. The server recalculates scores and owns inventories, prices, rarity rolls and supply counters.
-- Keep the art low-poly and light for the web build.
+- Keep the art light for the web build: resize textures and merge meshes.
 
 ## Skills and tools
 

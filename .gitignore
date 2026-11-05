@@ -178,3 +178,7 @@ $RECYCLE.BIN/
 
 # Playwright MCP session snapshots and console logs
 .playwright-mcp/
+
+# Third-party art: licence forbids redistributing assets; repo is public
+prototypes/quaternius-scene-spike/assets/
+design/art/demo.jpg
