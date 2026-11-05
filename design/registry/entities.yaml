@@ -419,6 +419,60 @@ constants:
     unit: days (cancellable deletion window)
     added: 2026-11-04
     revised: ""
+  - name: frame_cap
+    status: active
+    source: design/gdd/camera-model-viewfinder-exposure.md
+    referenced_by:
+      - design/gdd/camera-model-viewfinder-exposure.md
+    value: 36
+    unit: frames held at most
+    added: 2026-11-05
+    revised: ""
+  - name: frame_refill_ms
+    status: active
+    source: design/gdd/camera-model-viewfinder-exposure.md
+    referenced_by:
+      - design/gdd/camera-model-viewfinder-exposure.md
+    value: 30000
+    unit: ms per frame returned
+    added: 2026-11-05
+    revised: ""
+  - name: bag_slots
+    status: active
+    source: design/gdd/inventory-loadout.md
+    referenced_by:
+      - design/gdd/inventory-loadout.md
+    value: 4
+    unit: lens and adapter slots
+    added: 2026-11-05
+    revised: ""
+  - name: wallet_cap
+    status: active
+    source: design/gdd/currency-wallet.md
+    referenced_by:
+      - design/gdd/currency-wallet.md
+    value: 9999999
+    unit: Glints
+    added: 2026-11-05
+    revised: ""
+  - name: start_grant
+    status: active
+    source: design/gdd/currency-wallet.md
+    referenced_by:
+      - design/gdd/currency-wallet.md
+    value: 600
+    unit: Glints
+    added: 2026-11-05
+    revised: ""
+  - name: gear_kit_charge
+    status: active
+    source: design/gdd/currency-wallet.md
+    referenced_by:
+      - design/gdd/currency-wallet.md
+    value: 500
+    unit: Glints (placeholder camera kit charge at start)
+    added: 2026-11-05
+    revised: ""
 
 # Example:
 #

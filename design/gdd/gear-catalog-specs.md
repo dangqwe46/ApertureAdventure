@@ -46,7 +46,7 @@ Implementation choices (data format, how client and server share the tables, how
 
 **A. Identity**
 
-1. **A model is the unit of the catalog.** A model is one kind of gear (for example "Kanro KR 50 mm f/1.8"). Every model has a permanent `model_id`, a `kind` (`BODY`, `LENS`, `PHONE`, `ADAPTER`), a `brand_id`, a display name key, one `tier`, a `spec_rev`, a `release_state` and its kind's spec fields (rules 9–12). Individual owned items (instances) are not catalog records. Inventory & Loadout owns instances; each instance stores only `item_uid` and `model_id`, plus the fields other systems add (serial from Supply Caps, condition from Gear Condition).
+1. **A model is the unit of the catalog.** A model is one kind of gear (for example "Kanro KR 50 mm f/1.8"). Every model has a permanent `model_id`, a `kind` (`BODY`, `LENS`, `PHONE`, `ADAPTER`), a `brand_id`, a display name key, one `tier`, a `spec_rev`, a `release_state` and its kind's spec fields (rules 9–12). Individual owned items (instances) are not catalog records. Inventory & Loadout owns instances; each instance stores only `item_id` and `model_id`, plus the fields other systems add (serial from Supply Caps, condition from Gear Condition).
 2. **IDs are permanent and brand-neutral.** `model_id` follows `[kind]_[spec]_[tier]_[nn]`, lowercase, for example `lens_std50_f18_b_01`. It never contains a brand string, so a brand rename touches only display data (art bible A3). The asset base name is `gear_` + `model_id` (`gear_lens_std50_f18_b_01.glb`), matching the art bible naming rule (§8.2, A15). Once released, a `model_id` is never reused, renamed or deleted (retirement only; see States and Transitions). The `[tier]` token in a `model_id` is a **non-authoritative lowercase label for humans**: it is never parsed, and the `tier` field is the only source of a model's tier, so a signed-off tier migration (rule 7) leaves the ID unchanged.
 3. **Tier is per model, never per instance.** All instances of a model share its tier. No instance rolls a tier, and no instance can hold a different tier from its model. Supply Caps, Pricing, Crafting and Condition may key their tables on tier, and never alter it.
 4. **Every model has an explicit tier.** There is no null tier (Rarity Tier Ladder, Core Rule 9). The phone, each phone module and every adapter carries a tier. A model without a valid ladder ID fails catalog load and fails CI.
@@ -84,7 +84,7 @@ Implementation choices (data format, how client and server share the tables, how
 17. **Gear ceiling.** The gear ceiling of a loadout is `tier_min` of its body tier, lens tier and adapter tier (if any), or the phone's tier for a phone loadout (Formula F12). The catalog defines this function because only it knows which items a loadout contains. Capture Tier Resolution calls it and combines the result with the subject, moment, light and skill limits. The catalog never clamps the gear ceiling; producing systems apply `clamp_to_enabled` to what they produce.
 18. **Phone computational modes.** The phone has three modes. Camera Model implements their behaviour and Photo Scoring applies their score effects; the catalog defines the parameters:
     - `AUTO` (always on): auto exposure and continuous subject-detect autofocus. The player can still set exposure compensation.
-    - `NIGHT`: stacks frames for `NIGHT_MODE_STOPS` = 3 extra stops of low-light reach, but only if the camera is held still and the subject stays within `NIGHT_MODE_DRIFT_MM` for `NIGHT_MODE_HOLD_MS` = 2,000 ms. A moving subject ends the stack early and gives the normal exposure.
+    - `NIGHT`: stacks frames for `NIGHT_MODE_STOPS` = 3 extra stops of low-light reach, but only if the camera is held still and the subject stays within `NIGHT_MODE_DRIFT_MM` for `NIGHT_MODE_HOLD_MS` = 2,000 ms. A moving subject ends the stack early and gives the normal exposure. `NIGHT_MODE_DRIFT_MM` = 150 and the phone's body `af_class` = 3 (2026-11-05, from Camera Model).
     - `PORTRAIT`: adds a synthetic background blur worth `PORTRAIT_SYNTH_BLUR_BP` = 250 bp of frame width (Formula F7), with edge artefacts. Photo Scoring decides how artefacts affect the Focus part; the recommendation is a small, visible penalty, so real glass keeps its value.
 19. **Setting ranges.** For any valid loadout and current focal length, the catalog returns the legal camera settings: focal range (`f_min`..`f_max`, or modules plus digital zoom for a phone), aperture range (`n_max_at(f)` from Formula F4 to `n_min`), ISO range (`iso_min`..`iso_max`) and shutter range (`shutter_fast_us`..`shutter_slow_us`). Network Transport (rule 25) rejects any shot outside these ranges as the **server** knows the loadout, and Camera Model limits its dials to them.
 20. **Producible models.** A model may be newly produced (shop stock, rewards, crafting output, starting kit) only when `release_state = RELEASED` and `is_enabled(tier)` is true. Models above `enabled_cap` are complete, valid data ("dormant") that is never minted. Owned instances of a model that later becomes non-producible stay fully usable.
@@ -134,7 +134,7 @@ Implementation choices (data format, how client and server share the tables, how
     | `body_aps_entry_b_01` | Kanro Hearth | B | M20 | APS-C (1.5) | 100–12800 (3200) | 1/4000–30 s | 5.0 | 0 | 2 | no | 400 | 2/4 | ✓ start |
     | `body_ff_a_01` | Kanro Lantern | A | M20 | FF (1.0) | 100–51200 (6400) | 1/8000–30 s, bulb | 8.0 | 3 | 3 | no | 500 | 6/6 | ✓ U3 |
     | `body_aps_retro_b_01` | Fujin Drift | B | M17 | APS-C (1.5) | 160–12800 (3200) | 1/4000–30 s | 8.0 | 0 | 3 | no | 380 | 4/4 | |
-    | `body_ff_wild_a_01` | Nokta Kestrel | A | M16 | FF (1.0) | 100–51200 (6400) | 1/8000–30 s | 12.0 | 0 | 3 | no | 520 | 6/6 | |
+    | `body_ff_wild_a_01` | Nokta Kestrel | A | M16 | FF (1.0) | 100–51200 (6400) | 1/8000–30 s | 10.0 | 0 | 3 | no | 520 | 6/6 | |
 
     **Lenses**
 
@@ -169,7 +169,7 @@ Implementation choices (data format, how client and server share the tables, how
     | `body_ff_s_01` | Kanro Beacon | S | body, M20, FF | ISO clean 12800, burst 10, IBIS 3, AF 3 | 7/7 |
     | `lens_std50_f12_ss_01` | Kanro KR 50mm f/1.2 | SS | lens, M20, FF | 50 mm f/1.2, AF 4, sealed | 6/6 |
     | `body_mf_sss_01` | Nokta Zenith | SSS | body, M267, MF (0.79) | ISO clean 12800, burst 3, IBIS 5, AF 3, sealed | 9/9 |
-    | `lens_std80_f19_sss_01` | Nokta NM 80mm f/1.9 | SSS | lens, M267, MF | 80 mm f/1.9 (≈ 63 mm f/1.5 equivalent), AF 3, sealed | 4/7 |
+    | `lens_std80_f18_sss_01` | Nokta NM 80mm f/1.8 | SSS | lens, M267, MF | 80 mm f/1.8 (≈ 63 mm f/1.4 equivalent), AF 3, sealed | 4/7 |
 
 **What this system does not own:** prices and stock (Photo Pricing, Gear Shop); supply caps and serial numbers (Supply Caps & Gear Serials); ownership, instances and the equipped loadout (Inventory & Loadout, which enforces the fit rules defined here); wear, condition values, repairs and what `sealed` does in the rain (Gear Condition & Maintenance); merging (Gear Crafting); how specs change the score, including noise above `iso_clean`, portrait artefacts and digital-zoom loss (Photo Scoring); exposure, focusing behaviour, battery drain and the viewfinder (Camera Model); the final image tier and odds (Capture Tier Resolution); shapes, colours and decals (art bible).
 
@@ -410,7 +410,7 @@ The af_time formula is defined as:
 | body.af_class | int | 1–5 | data file (body or phone) | Body AF system class |
 | AF_LENS_MS | map int → int (ms) | defaults 1: 600, 2: 450, 3: 320, 4: 220, 5: 150 | data file (tuning) | Lens motor time to lock |
 | AF_BODY_PERMILLE | map int → int (‰) | defaults 1: 1300, 2: 1150, 3: 1000, 4: 850, 5: 700 | data file (tuning) | Body AF speed multiplier |
-| af_ms | int (ms) | 105–780, or `MANUAL` | calculated | Time from half-press to focus lock on a static subject |
+| af_ms | int (ms) | 105–780, or `MANUAL` | calculated | Time from focus start to focus lock on a static subject |
 
 **Output Range:** 105 ms (class 5 on class 5) to 780 ms (class 1 on class 1), or `MANUAL`. Camera Model owns tracking, hunting and moving-subject behaviour; this is the base value it starts from.
 **Example:** Kit zoom (2) on the Hearth (2): 450 × 1150 / 1000 = **517 ms**. KR 85 (3) on the Lantern (3): **320 ms**. Nokta NZ 24–70 (3) on the Lantern via... not valid (NZ lenses cannot adapt to KR, F13). KR 85 (3) through the smart adapter (−1 → 2) on the Kestrel (3): 450 × 1000 / 1000 = **450 ms**. Hollin 58 on any body: **MANUAL**.
@@ -696,6 +696,8 @@ Tags: **[Logic]** automated gdUnit4 unit test (suggested name given) · **[Integ
 Coverage notes: score effects of specs (noise, portrait artefacts, look tags) are tested in Photo Scoring. Battery drain, focus behaviour and night-mode stacking behaviour are tested in Camera Model.
 
 ## Open Questions
+
+> 2026-11-05: the Kestrel is 10 fps to match Network's `SHUTTER_RATE_CAP`; the dormant 80 mm is f/1.8 so it sits on `THIRD_STOPS`. CI must also check that `mfd_mm` exceeds the longest focal length. In F12, `L` is read when `SHUTTER` is validated, not at the capture tick.
 
 | # | Question | Owner | Resolve by |
 |---|---|---|---|

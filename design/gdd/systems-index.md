@@ -128,10 +128,10 @@ Rows are numbered in recommended design order. "(inferred)" marks systems not na
 | 5 | Gear Catalog & Specs | Economy | MVP | Designed | [gear-catalog-specs.md](gear-catalog-specs.md) | Rarity Tier Ladder |
 | 6 | Accounts & Server Persistence | Persistence | MVP | Designed | [accounts-server-persistence.md](accounts-server-persistence.md) | Network Transport & Server Authority |
 | 7 | Subject & Spirit Behaviour | Gameplay | MVP | Designed | [subject-spirit-behaviour.md](subject-spirit-behaviour.md) | Rarity Tier Ladder, World Time Weather & Light, Player Movement & Exploration (presence radius), Network Transport & Server Authority |
-| 8 | Camera Model: Viewfinder & Exposure (inferred) | Gameplay | MVP | Not Started | — | Player Movement & Exploration, Gear Catalog & Specs, World Time Weather & Light |
+| 8 | Camera Model: Viewfinder & Exposure (inferred) | Gameplay | MVP | Designed | [camera-model-viewfinder-exposure.md](camera-model-viewfinder-exposure.md) | Player Movement & Exploration, Gear Catalog & Specs, World Time Weather & Light, Network Transport & Server Authority, Subject & Spirit Behaviour |
 | 9 | Photo Recipe & Re-render | Persistence | MVP | Not Started | — | Camera Model, Subject & Spirit Behaviour, World Time Weather & Light, Network Transport & Server Authority, Player Movement & Exploration (camera pose) |
-| 10 | Inventory & Loadout (inferred) | Economy | MVP | Not Started | — | Gear Catalog & Specs, Accounts & Server Persistence |
-| 11 | Currency & Wallet (inferred) | Economy | MVP | Not Started | — | Accounts & Server Persistence |
+| 10 | Inventory & Loadout (inferred) | Economy | MVP | Designed | [inventory-loadout.md](inventory-loadout.md) | Gear Catalog & Specs, Accounts & Server Persistence |
+| 11 | Currency & Wallet (inferred) | Economy | MVP | Designed | [currency-wallet.md](currency-wallet.md) | Accounts & Server Persistence |
 | 12 | Photo Scoring | Gameplay | MVP | Not Started | — | Photo Recipe & Re-render, Gear Catalog & Specs, Subject & Spirit Behaviour, World Time Weather & Light |
 | 13 | Capture Tier Resolution | Progression | MVP | Not Started | — | Rarity Tier Ladder, Gear Catalog & Specs, Inventory & Loadout, Subject & Spirit Behaviour, Photo Scoring |
 | 14 | Starting Choice | Progression | MVP | Not Started | — | Gear Catalog & Specs, Inventory & Loadout, Currency & Wallet |
@@ -380,10 +380,10 @@ No other cycles were found in the declared graph.
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 45 |
-| Design docs started | 7 |
+| Design docs started | 10 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
-| MVP systems designed | 7/21 |
+| MVP systems designed | 10/21 |
 | Vertical Slice systems designed | 0/7 |
 
 ---
@@ -406,7 +406,7 @@ No other cycles were found in the declared graph.
 | A10 | Lens adapters, vintage looks and the phone are entries **inside Gear Catalog & Specs**, not separate systems. | System 5 | A separate "Phone Path" system if the phone becomes a full upgrade line (see B3). |
 | A11 | Editions, demand rotation, diminishing returns and NPC client requests all live in **one** Photo Pricing system. | System 16 | Split "Demand Model" from "Client Requests". |
 | A12 | Money sinks are spread out: travel in Zone Access, repairs/upkeep in Gear Condition, storage in Gallery (a storage limit with paid expansion). The concept names "storage" as a sink, but where it sits is my placement. | Systems 15, 22, 31 | One "Money Sinks" system. |
-| A13 | One soft currency, no premium currency. Monetization/cosmetic store is **not** in this index (the concept only says paid items, if any, stay cosmetic). | System 11 | Add a "Cosmetics & Monetization" Meta system (Full Vision) once the business model is decided. |
+| A13 | One soft currency, no premium currency. Monetization/cosmetic store is **not** in this index (the concept only says paid items, if any, stay cosmetic). | System 11 | Add a "Cosmetics & Monetization" Meta system (Full Vision) once the business model is decided. | **DECIDED 2026-11-05** (user): Glints, see currency-wallet.md.
 | A14 | Gear Shop is an inferred NPC vendor with fixed MVP prices. Under supply caps its stock becomes cap-limited. | Systems 17, 32 | Gear only from contests and achievements ("earned, not bought" option). |
 | A15 | Added inferred systems not in the concept: Moderation & Reporting, Economy Telemetry, Settings & Accessibility, Onboarding, Audio, Subject Codex & Lore, Photographer Reputation, Zone Access & Travel. | Systems 22, 27, 28, 30, 38–41 | Drop or merge any of them. |
 | A16 | Gear Crafting and Seasons are **Alpha**, next to Supply Caps (they relieve the caps), even though the concept lists them only as options. | Systems 33, 35 | Full Vision, or cut, if the cap-scope answer makes them unnecessary. |
@@ -422,7 +422,7 @@ No other cycles were found in the declared graph.
 | B1 | **Brands:** invented makers or real names (with legal review)? | Gear Catalog & Specs (5), Shop/Sell/Inventory UI (21), Leaderboards (24, entries show gear used), Leaderboard & Social UI (26), Subject Codex & Lore (38) | Naming data, mount family names, the asset pipeline (logos/body designs), legal sign-off. Decide before Gear Catalog Section 3. |
 | B2 | **Player-to-player photo selling:** allowed, or only NPCs and the market at first? (Gear trading itself was decided.) | Player-to-Player Trading & Market (37), Photo Pricing (16, editions and resale rules), Gallery (15, ownership transfer), Currency & Wallet (11), Moderation (39), Economy Telemetry (41), Commission Board (42) | Whether photos are tradable assets. That affects edition rules ("a sold photo cannot be resold by the seller") and dupe prevention. |
 | B3 | **Phone path:** starting tool only, or a permanent path with its own upgrades? | Starting Choice (14), Gear Catalog (5), Camera Model (8, auto modes), Capture Tier Resolution (13, phone tier ceiling), Leaderboards (24, possible phone category), Onboarding (28) | A permanent path needs a phone upgrade line and a tier ceiling above C/B. That might justify a separate "Phone Path" system (A10). |
-| B4 | **Starting camera cost:** in-game debt, or paid up front? | Starting Choice (14), Currency & Wallet (11, debt state and repayment) | Debt adds a negative-balance state, repayment rules and failure edge cases to Wallet. |
+| B4 | **Starting camera cost:** in-game debt, or paid up front? | Starting Choice (14), Currency & Wallet (11, debt state and repayment) | Debt adds a negative-balance state, repayment rules and failure edge cases to Wallet. | **DECIDED 2026-11-05** (user): paid up front, no debt.
 | B5 | **Supply cap scope:** global, per season, or per player? | Supply Caps & Gear Serials (32), Seasons (35), Gear Shop (17), Gear Crafting (33), P2P Trading (37), Economy Telemetry (41) | Global or per-season caps need server counters and seasons. Per-player caps make Supply Caps a simple ownership limit and weaken Seasons. |
 | B6 | **Broken gear:** disappears, or returns to supply? | Gear Condition & Maintenance (31), Supply Caps & Gear Serials (32), Gear Crafting (33) | "Returns to supply" creates the Condition -> Supply `release_serial` edge (see Circular Dependencies). "Disappears" removes it and makes breakage a permanent sink. |
 | B7 | **First claim:** winner-takes-all, or a smaller reward for everyone nearby? | First-Claim & Image Serials (34), Co-op Crew Roles (36, credit split), Server-Wide Events & Timed Races (45), Leaderboards (24, rarity board), Expedition Rooms (29, who counts as "nearby") | Reward table, presence detection, and how sharp the competitive loop is. |

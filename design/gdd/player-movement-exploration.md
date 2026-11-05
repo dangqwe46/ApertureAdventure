@@ -246,7 +246,7 @@ The presence_raw formula is defined as:
 | k_speed | float m per m/s | 0.5–3.0 (1.5) | data | Extra radius per m/s of horizontal speed |
 | h_speed | float m/s | 0–6.5 | physics state (or snapshot) | Actual horizontal speed, not input |
 | surface_mult[surface] | float | 0.5–2.0 (grass 0.8, sand 0.9, cobble/stone 1.0, plank 1.3, shallow water 1.5) | data + baked surface map | Footing loudness |
-| event_bonus | float m | 0–8 | presence events (land +4.0, traversal end +2.0; other systems add their own) | Sum of active event bonuses; each lasts 0.5 s |
+| event_bonus | float m | 0–8 | presence events (land +4.0, traversal end +2.0; other systems add their own) | Sum of active event bonuses; each lasts 0.5 s. A repeated event of one kind refreshes, never stacks, so a burst is one shutter event (2026-11-05, Camera Model Rule 43) |
 | presence_max | float m | 8–25 (15) | data | Hard cap |
 | presence_raw | float m | 0–presence_max | calculated | Instantaneous presence |
 
@@ -586,6 +586,8 @@ Tags: **[Logic]** automated gdUnit4 unit test (suggested name) · **[Integration
 38. [Integration] (playtest) **GIVEN** 5 players exploring freely for 15 minutes, **WHEN** stance telemetry is collected, **THEN** Hurry accounts for at most 50% of moving time (initial threshold, tune after playtest); above it, revisit unlimited Hurry (Open Question 8).
 
 ## Open Questions
+
+> 2026-11-05: player yaw must map onto World's clockwise-from-north azimuth for Camera Model F3. After going Home, the player rejoins the field at a fixed entry point (Inventory & Loadout); Zone Access may add travel cost in Vertical Slice.
 
 1. **Deliberate camera roll (Dutch tilt):** is it a Camera Model feature? If yes, R18 sanity check 1 must read Camera Model's roll limit. Owner: Camera Model GDD.
 2. **Low angles below sneak (prone/ground-level) and high angles (stand on a bench):** is a third eye height worth a stance, or covered by authored perches? Owner: game-designer + level-designer, after prototype.
