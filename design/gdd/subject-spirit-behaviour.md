@@ -756,6 +756,8 @@ Logic tests live in `tests/unit/subject_behaviour/` (gdUnit4). All Logic tests u
 
 ## Open Questions
 
+> 2026-11-05 (Photo Recipe): out-of-view subjects are stored in the audit block only; `MAX_ACTIVE_PER_ZONE` is capped at 8 by the recipe size (Photo Recipe F1).
+
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | Shared ADR with World: `hash32`, `isqrt`, `floordiv`, the published `SIN64` and `DIR16` tables and reference vectors for this system's formulas. | technical-director → ADR "Deterministic world-state functions" (extend) | Before implementation |

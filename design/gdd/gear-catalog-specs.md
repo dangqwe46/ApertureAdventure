@@ -697,6 +697,8 @@ Coverage notes: score effects of specs (noise, portrait artefacts, look tags) ar
 
 ## Open Questions
 
+> 2026-11-05 (Photo Recipe): add a permanent integer `model_key` per model; the client catalog keeps render fields of every `spec_rev`.
+
 > 2026-11-05: the Kestrel is 10 fps to match Network's `SHUTTER_RATE_CAP`; the dormant 80 mm is f/1.8 so it sits on `THIRD_STOPS`. CI must also check that `mfd_mm` exceeds the longest focal length. In F12, `L` is read when `SHUTTER` is validated, not at the capture tick.
 
 | # | Question | Owner | Resolve by |

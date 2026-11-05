@@ -927,6 +927,8 @@ This system supplies data. Viewfinder HUD owns layout, and every item needs a ux
 
 ## Open Questions
 
+> 2026-11-05 (Photo Recipe): `evaluate_shot` also outputs `motion_dir`; `exposure_err_deci` is read by re-render (F21); F20 names `RENDER_BLUR_CAP_BP`; confirm which subject `PORTRAIT` uses; NPCs are ghosted in the viewfinder and absent from photos in MVP.
+
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | Frame cost of the depth blur on real low-end hardware is unmeasured, and reference hardware is undefined (also Movement Open Question 7). Sets `PREVIEW_BLUR_MAX_PX`, tap count and fallback thresholds. | technical-artist + godot-shader-specialist | First spike, before implementation |

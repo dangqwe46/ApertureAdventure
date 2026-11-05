@@ -634,6 +634,8 @@ Coverage notes: every Core Rule (1–15) and every formula (F1–F13) has at lea
 
 ## Open Questions
 
+> 2026-11-05 (Photo Recipe): the WorldSnapshot in Rule 14 must also store the slot's **next** weather, because previous and effective alone cannot give the blend during its first half. Live shaders take time from `phase_ms`.
+
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | Which hash function (`hash32`) and integer conventions (floor division helpers, signed index handling) are used, and the published reference vectors. GDScript `int` is assumed to be 64-bit and `/` on ints to truncate toward zero (UNVERIFIED, not in the engine reference), so `floordiv` must be explicit. | technical-director → ADR "Deterministic world-state functions" | Before implementation |

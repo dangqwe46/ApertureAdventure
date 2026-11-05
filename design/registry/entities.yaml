@@ -473,6 +473,16 @@ constants:
     unit: Glints (placeholder camera kit charge at start)
     added: 2026-11-05
     revised: ""
+  - name: recipe_max_bytes
+    status: active
+    source: design/gdd/photo-recipe-rerender.md
+    referenced_by:
+      - design/gdd/photo-recipe-rerender.md
+      - design/gdd/accounts-server-persistence.md
+    value: 512
+    unit: bytes (hard cap for one stored recipe)
+    added: 2026-11-05
+    revised: ""
 
 # Example:
 #

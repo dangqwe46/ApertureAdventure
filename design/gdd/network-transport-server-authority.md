@@ -735,6 +735,8 @@ Tags: **[Logic]** automated gdUnit4 unit test (suggested name given) · **[Integ
 
 ## Open Questions
 
+> 2026-11-05 (Photo Recipe): the player ID lives in the `photo` row, not the recipe; `SHUTTER_RESULT` carries the render block with `saved: true` only; the `SHUTTER` cap note refers to client-proposed fields only.
+
 **Design questions** (see Decisions to confirm for options and recommendations): solo session model (D1), movement authority (D2), lag compensation (D3), protocol window (D4), content lockstep (D5), ladder mismatch policy (D6), multi-tab rule (D7), shots during a drop (D8), meta outage behaviour (D9), violation thresholds (D10), first-claim ordering (D11), latency target (D12), snapshot rate (D13), grace length (D14), economy optimism (D15).
 
 **Other open questions**

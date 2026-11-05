@@ -599,6 +599,8 @@ Tags: **[Logic]** automated gdUnit4 unit test (suggested name) · **[Integration
 
 ## Open Questions
 
+> 2026-11-05 (Photo Recipe): the stored recipe cap is `RECIPE_MAX_B`, not Network F3 (Rule 22). Add `recipe_audit`, `session_ref` and the `rescore_audit` record. Rule 25 exception: `capture_ms` comes from the session server inside the recipe block.
+
 **Design questions** (options and recommendations in Decisions to confirm): guest accounts (D1), sign-in methods (D2), deleted photos (D3), deleted gear (D4), deletion grace (D5), ledger model (D6), backup RPO/RTO (D7), tokens (D8), display names (D9), effect keys (D10), migration (D11), restore notice (D12), inactive accounts (D13), integrity response (D14), data export (D15), roll retention (D16).
 
 **Legal and policy (not legal advice; need a qualified reviewer)**

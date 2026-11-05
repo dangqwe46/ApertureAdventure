@@ -129,7 +129,7 @@ Rows are numbered in recommended design order. "(inferred)" marks systems not na
 | 6 | Accounts & Server Persistence | Persistence | MVP | Designed | [accounts-server-persistence.md](accounts-server-persistence.md) | Network Transport & Server Authority |
 | 7 | Subject & Spirit Behaviour | Gameplay | MVP | Designed | [subject-spirit-behaviour.md](subject-spirit-behaviour.md) | Rarity Tier Ladder, World Time Weather & Light, Player Movement & Exploration (presence radius), Network Transport & Server Authority |
 | 8 | Camera Model: Viewfinder & Exposure (inferred) | Gameplay | MVP | Designed | [camera-model-viewfinder-exposure.md](camera-model-viewfinder-exposure.md) | Player Movement & Exploration, Gear Catalog & Specs, World Time Weather & Light, Network Transport & Server Authority, Subject & Spirit Behaviour |
-| 9 | Photo Recipe & Re-render | Persistence | MVP | Not Started | — | Camera Model, Subject & Spirit Behaviour, World Time Weather & Light, Network Transport & Server Authority, Player Movement & Exploration (camera pose) |
+| 9 | Photo Recipe & Re-render | Persistence | MVP | Designed | [photo-recipe-rerender.md](photo-recipe-rerender.md) | Camera Model, Subject & Spirit Behaviour, World Time Weather & Light, Network Transport & Server Authority, Player Movement & Exploration (camera pose) |
 | 10 | Inventory & Loadout (inferred) | Economy | MVP | Designed | [inventory-loadout.md](inventory-loadout.md) | Gear Catalog & Specs, Accounts & Server Persistence |
 | 11 | Currency & Wallet (inferred) | Economy | MVP | Designed | [currency-wallet.md](currency-wallet.md) | Accounts & Server Persistence |
 | 12 | Photo Scoring | Gameplay | MVP | Not Started | — | Photo Recipe & Re-render, Gear Catalog & Specs, Subject & Spirit Behaviour, World Time Weather & Light |
@@ -380,10 +380,10 @@ No other cycles were found in the declared graph.
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 45 |
-| Design docs started | 10 |
+| Design docs started | 11 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
-| MVP systems designed | 10/21 |
+| MVP systems designed | 11/21 |
 | Vertical Slice systems designed | 0/7 |
 
 ---
