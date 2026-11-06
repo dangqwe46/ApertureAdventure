@@ -1,6 +1,6 @@
 # Visual Entity & Screen Inventory
 
-> Generated: 2026-11-05
+> Generated: 2026-11-05. Updated: 2026-11-07 for the 3D stylized Quaternius direction (art bible Revision 2026-11-05, 8.10 to 8.12)
 > Sources: design/art/art-bible.md; Visual/Audio and UI Requirements sections of the 10 designed GDDs in design/gdd/, plus design/gdd/photo-recipe-rerender.md (Visual/Audio only; it appeared untracked during this run); design/gdd/subject-spirit-behaviour.md (Rule 4 roster); design/gdd/gear-catalog-specs.md (Rules 26-27); design/gdd/game-concept.md; design/gdd/systems-index.md
 > Asset IDs, priorities and routes live in design/assets/asset-manifest.md. Audio rows are descriptions only.
 
@@ -26,7 +26,9 @@
 ## Open items found while building this list
 
 - **Mount index colours:** the Gear GDD says the art bible defines the mount token colours; it does not yet.
-- **No skin or hair colours in the palette:** art bible 4.2 has no skin stop. The placeholder uses Driftwood Clay.
+- **Skin and hair now come from the packs:** art bible 4.2 still has no skin stop, so the pack maps are graded to the palette (4.1). The outfit pack ships only the Dark skin map for hands, while the bases have Dark and Light.
+- **Characters are over budget:** every outfit with a head is above the 15,000 limit in 8.3. Figures are in the character spec.
+- **Art bible 5.1 is out of date:** it still calls outfits open. The user has since chosen Modular Character Outfits (Peasant, Ranger).
 - **`BOUNDS_MM` has no values:** the Subject GDD names it per species but gives none. Proposed values are in the character spec.
 - **Music:** nothing in the designed docs asks for it.
 
@@ -34,23 +36,23 @@
 
 | # | Asset ID | Name | Type | Description | Source | Status |
 |---|---|---|---|---|---|---|
-| 1 | ASSET-001 | Player photographer, placeholder | Character | Stiff jointed figure with no skeleton or animation; stands in until the CC0 human is in | Art bible 5.1, A5 | Done |
-| 2 | ASSET-002 | Player photographer, final | Character | Rigged CC0 human, recoloured to palette with flat-shaded material override | Art bible 5.1, A5 | Needed |
-| 3 | ASSET-003 | Player locomotion clips | Animation | Idle, walk, hurry, sneak idle, sneak walk, stand and sneak transition, soft landing, wade walk | Movement GDD Visual/Audio | Needed |
-| 4 | ASSET-004 | Player camera clips | Animation | Raise to eye, hold phone up, viewfinder idle, lower and glance at back screen. Unlikely to exist in a CC0 pack | Movement GDD Visual/Audio; Art bible 5.1 | Needed |
-| 5 | ASSET-005 | Player traversal clips | Animation | Ladder climb loop, scramble or vault at 0.8 s | Movement GDD Visual/Audio | Needed |
-| 6 | ASSET-006 | NPC client, fisher | Character | Same base body, one role prop (hat), muted palette. Provisional: client roster not designed | Art bible 5.2; systems index 16 (GDD not started) | Needed |
-| 7 | ASSET-007 | NPC client, shopkeeper | Character | Same base body, apron role prop. Provisional: Gear Shop GDD not started | Art bible 5.2; systems index 17 (GDD not started) | Needed |
-| 8 | ASSET-008 | NPC client, courier | Character | Same base body, satchel role prop. Provisional | Art bible 5.2; systems index 16 (GDD not started) | Needed |
-| 9 | ASSET-009 | NPC client, archivist | Character | Same base body, clipboard role prop. Provisional | Art bible 5.2; systems index 16 (GDD not started) | Needed |
-| 10 | ASSET-010 | NPC idle clips | Animation | Idle and small gesture only | Art bible 5.2 | Needed |
+| 1 | ASSET-001 | Player photographer, placeholder | Character | Stiff jointed figure, no skeleton or animation. Superseded by ASSET-002; kept for the record only | Art bible 5.1, A5 | Superseded |
+| 2 | ASSET-002 | Player photographer, final | Character | Rigged Universal Base Characters head and hair in a Modular Character Outfits outfit, keeping its textures, graded to palette | Art bible 5.1, 8.10 | Needed |
+| 3 | ASSET-003 | Player locomotion clips | Animation | Idle, walk, hurry, sneak idle, sneak walk and soft landing from Universal Animation Library. Stand and sneak transition is a blend; wade is a slowed walk | Movement GDD Visual/Audio; Art bible 8.10 | Needed |
+| 4 | ASSET-004 | Player camera clips | Animation | Raise to eye, hold phone up, viewfinder idle, lower and glance at back screen. In neither animation library | Movement GDD Visual/Audio; Art bible 5.1 | Needed |
+| 5 | ASSET-005 | Player traversal clips | Animation | Scramble or vault at 0.8 s, from `CLIMBUP 1M` in Universal Animation Library 2. Ladder moved to ASSET-173 | Movement GDD Visual/Audio | Needed |
+| 6 | ASSET-006 | NPC client, fisher | Character | Pack base and Peasant outfit, one role prop (hat), muted palette. Provisional: client roster not designed | Art bible 5.2; systems index 16 (GDD not started) | Needed |
+| 7 | ASSET-007 | NPC client, shopkeeper | Character | Pack base and Peasant outfit, apron role prop. Provisional: Gear Shop GDD not started | Art bible 5.2; systems index 17 (GDD not started) | Needed |
+| 8 | ASSET-008 | NPC client, courier | Character | Pack base and Peasant outfit, satchel role prop. Provisional | Art bible 5.2; systems index 16 (GDD not started) | Needed |
+| 9 | ASSET-009 | NPC client, archivist | Character | Pack base and Peasant outfit, clipboard role prop. Provisional | Art bible 5.2; systems index 16 (GDD not started) | Needed |
+| 10 | ASSET-010 | NPC idle clips | Animation | Idle and small gesture only, from Universal Animation Library | Art bible 5.2 | Needed |
 | 11 | ASSET-011 | Player cosmetics | Character | Hat and bag options, jacket and strap colour lists | Art bible 5.1 | Needed |
-| 12 | ASSET-012 | Wildlife subjects | Character | Rigged low-poly animals. Species not chosen; none are in the MVP roster | Art bible 5.4 | Needed |
-| 13 | ASSET-013 | Puffwisp | Creature | Tier C spirit, short trailing wisp | Subject GDD Rule 4 | Done |
-| 14 | ASSET-014 | Mossmote | Creature | Tier C spirit, two ear-like fins, hovers above moss | Subject GDD Rule 4 | Done |
-| 15 | ASSET-015 | Driftfin | Creature | Tier B spirit, long tail fin | Subject GDD Rule 4 | Done |
-| 16 | ASSET-016 | Hearth Echo | Creature | Tier B memory, empty frame of faded light around a half-seen scene | Subject GDD Rule 4 | Done |
-| 17 | ASSET-017 | Halo Keeper | Creature | Tier A spirit, slow ring orbiting the body | Subject GDD Rule 4 | Done |
+| 12 | ASSET-012 | Wildlife subjects | Character | Rigged animals. Species not chosen; none are in the MVP roster. The free animal pack is not textured, so it needs checking against the world | Art bible 5.4 | Needed |
+| 13 | ASSET-013 | Puffwisp | Creature | Tier C spirit, short trailing wisp. Proposal, to restyle for the textured world | Subject GDD Rule 4 | Restyle proposal |
+| 14 | ASSET-014 | Mossmote | Creature | Tier C spirit, two ear-like fins, hovers above moss. Proposal, to restyle for the textured world | Subject GDD Rule 4 | Restyle proposal |
+| 15 | ASSET-015 | Driftfin | Creature | Tier B spirit, long tail fin. Proposal, to restyle for the textured world | Subject GDD Rule 4 | Restyle proposal |
+| 16 | ASSET-016 | Hearth Echo | Creature | Tier B memory, empty frame of faded light around a half-seen scene. Proposal, to restyle for the textured world | Subject GDD Rule 4 | Restyle proposal |
+| 17 | ASSET-017 | Halo Keeper | Creature | Tier A spirit, slow ring orbiting the body. Proposal, to restyle for the textured world | Subject GDD Rule 4 | Restyle proposal |
 | 18 | ASSET-018 | Capture Encounter set-piece subject | Creature | Concept's boss-like encounter. Not defined: Capture Encounter GDD not started | Concept; systems index 18 (GDD not started) | Needed |
 | 19 | ASSET-019 | Driftfin (gilded) | Creature | Tier S variant, adds a second orbiting part. Disabled data in MVP | Subject GDD Rule 4 | Needed |
 | 20 | ASSET-020 | Vesper Halo | Creature | Tier SS, ring, orbiting part, trailing wisp, own event light. Disabled data in MVP | Subject GDD Rule 4 | Needed |
@@ -79,45 +81,45 @@
 | 43 | ASSET-043 | Nokta Zenith body | Item | Dormant tier SSS | Gear GDD Rule 27 | Needed |
 | 44 | ASSET-044 | Nokta NM 80mm f/1.8 lens | Item | Dormant tier SSS | Gear GDD Rule 27 | Needed |
 | 45 | ASSET-045 | Mount index dot and brand decal slot | Item | Per-mount dot colour and swappable brand label. Bible owes the mount token colours | Gear GDD Visual/Audio; Art bible A3 | Needed |
-| 46 | ASSET-046 | Lighthouse | Environment | Hero landmark, emissive lamp, gallery rail anchor for Halo Keeper | Art bible 3.1, 6.1, A4 | Needed |
-| 47 | ASSET-047 | Cliff chunks | Environment | Big planar wedges for cliff and shore | Art bible 3.1, 6.1, A4 | Needed |
-| 48 | ASSET-048 | Terrain base | Environment | Coastal village ground mesh; one small area | Art bible 3.1, 6.1, A4 | Needed |
-| 49 | ASSET-049 | Gabled house, lived-in | Environment | Timber and whitewash, doorstep anchor for Hearth Echo | Art bible 3.1, 6.1, A4 | Needed |
-| 50 | ASSET-050 | Gabled house, shut | Environment | Sagging roof line, boarded window | Art bible 3.1, 6.1, A4 | Needed |
-| 51 | ASSET-051 | Gabled house, small | Environment | Variant for street rhythm | Art bible 3.1, 6.1, A4 | Needed |
-| 52 | ASSET-052 | Gear shop exterior | Environment | Provisional; Gear Shop GDD not started | Art bible 3.1, 6.1, A4 | Needed |
-| 53 | ASSET-053 | Pier on posts | Environment | Leading line, Driftfin anchors, plank footing | Art bible 3.1, 6.1, A4 | Needed |
-| 54 | ASSET-054 | Harbour wall | Environment | Stone wall segment, Driftfin anchors | Art bible 3.1, 6.1, A4 | Needed |
-| 55 | ASSET-055 | Round tree | Environment | 2 to 3 faceted crown masses, merge true | Art bible 3.1, 6.1, A4 | Needed |
-| 56 | ASSET-056 | Pine tree | Environment | Woodland strip tree, merge true | Art bible 3.1, 6.1, A4 | Needed |
-| 57 | ASSET-057 | Rock set | Environment | Chunky rocks, Mossmote anchors | Art bible 3.1, 6.1, A4 | Needed |
-| 58 | ASSET-058 | Moss patch | Environment | Low mound for Mossmote anchors | Art bible 3.1, 6.1, A4 | Needed |
-| 59 | ASSET-059 | Grass clump | Environment | MultiMesh scatter | Art bible 3.1, 6.1, A4 | Needed |
-| 60 | ASSET-060 | Ladder traversal piece | Environment | Authored traversal point | Art bible 3.1, 6.1, A4 | Needed |
-| 61 | ASSET-061 | Rock scramble and low wall | Environment | Authored traversal points | Art bible 3.1, 6.1, A4 | Needed |
-| 62 | ASSET-062 | Darkroom interior | Environment | Red-lit hub room. Provisional; Darkroom GDD not started | Art bible 3.1, 6.1, A4 | Needed |
-| 63 | ASSET-063 | Gallery interior | Environment | Warm interior, print walls. Provisional; Gallery GDD not started | Art bible 3.1, 6.1, A4 | Needed |
-| 64 | ASSET-064 | Gear shop interior | Environment | Provisional; Gear Shop GDD not started | Art bible 3.1, 6.1, A4 | Needed |
+| 46 | ASSET-046 | Lighthouse | Environment | Hero landmark built from kit walls and `Roof_Tower_RoundTiles`, white plaster, emissive lamp, gallery rail anchor for Halo Keeper | Art bible 3.1, 6.1, 8.10, 8.12 | Needed |
+| 47 | ASSET-047 | Cliff chunks | Environment | Stylized Nature rocks at large scale for cliff and shore | Art bible 3.1, 6.1, 8.10 | Needed |
+| 48 | ASSET-048 | Terrain base | Environment | Coastal village ground mesh built in Godot, with blended ground textures; one small area | Art bible 3.1, 6.1, 6.2 | Needed |
+| 49 | ASSET-049 | Gabled house, lived-in | Environment | Half-timbered kit house, tiled gable, doorstep anchor for Hearth Echo | Art bible 3.1, 6.1, 8.10 | Needed |
+| 50 | ASSET-050 | Gabled house, shut | Environment | Kit house, closed shutters, vines, uneven brick | Art bible 3.1, 6.1, 8.10 | Needed |
+| 51 | ASSET-051 | Gabled house, small | Environment | Smaller kit house for street rhythm | Art bible 3.1, 6.1, 8.10 | Needed |
+| 52 | ASSET-052 | Gear shop exterior | Environment | Kit building. Provisional; Gear Shop GDD not started | Art bible 3.1, 6.1, 8.10 | Needed |
+| 53 | ASSET-053 | Pier on posts | Environment | Leading line built from kit planks, posts and fence rail. Driftfin anchors, plank footing | Art bible 3.1, 6.1, 8.10, 8.12 | Needed |
+| 54 | ASSET-054 | Harbour wall | Environment | Kit brick wall with stone cap, Driftfin anchors | Art bible 3.1, 6.1, 8.10 | Needed |
+| 55 | ASSET-055 | Round tree | Environment | Stylized Nature `CommonTree` set; needs a LOD1 | Art bible 3.1, 8.3, 8.10 | Needed |
+| 56 | ASSET-056 | Pine tree | Environment | Stylized Nature `Pine` set for the woodland strip; needs a LOD1 | Art bible 3.1, 8.3, 8.10 | Needed |
+| 57 | ASSET-057 | Rock set | Environment | Stylized Nature `Rock_Medium` set, Mossmote anchors | Art bible 3.1, 8.3, 8.10 | Needed |
+| 58 | ASSET-058 | Moss patch | Environment | Low clover and plant cluster, tinted, for Mossmote anchors | Art bible 3.1, 8.10 | Needed |
+| 59 | ASSET-059 | Grass clump | Environment | Stylized Nature grass, instanced in drifts | Art bible 6.3, 8.4, 8.10 | Needed |
+| 60 | ASSET-060 | Ladder traversal piece | Environment | Authored traversal point, built from kit timber | Art bible 3.1, 8.10 | Needed |
+| 61 | ASSET-061 | Rock scramble and low wall | Environment | Authored traversal points from Stylized Nature rocks and kit stone | Art bible 3.1, 8.10 | Needed |
+| 62 | ASSET-062 | Darkroom interior | Environment | Red-lit hub room, kit shell. Provisional; Darkroom GDD not started | Art bible 3.1, 6.1, 8.10 | Needed |
+| 63 | ASSET-063 | Gallery interior | Environment | Warm interior, print walls, kit shell. Provisional; Gallery GDD not started | Art bible 3.1, 6.1, 8.10 | Needed |
+| 64 | ASSET-064 | Gear shop interior | Environment | Kit shell. Provisional; Gear Shop GDD not started | Art bible 3.1, 6.1, 8.10 | Needed |
 | 65 | ASSET-065 | Fence section | Item | Repeated leading line, instanced | Art bible 6.3, 6.4, 8.3 | Needed |
-| 66 | ASSET-066 | Signpost, icon only | Item | No text-heavy signage | Art bible 6.3, 6.4, 8.3 | Needed |
+| 66 | ASSET-066 | Signpost, icon only | Item | No text-heavy signage. Kit timber post and board, icon decal | Art bible 6.3, 6.4, 8.3 | Needed |
 | 67 | ASSET-067 | Crate | Item | Repeated dressing | Art bible 6.3, 6.4, 8.3 | Needed |
 | 68 | ASSET-068 | Bench | Item | Medium prop | Art bible 6.3, 6.4, 8.3 | Needed |
-| 69 | ASSET-069 | Rowing boat | Item | Medium prop for the shore | Art bible 6.3, 6.4, 8.3 | Needed |
-| 70 | ASSET-070 | Mooring post | Item | Leaning post, weathering by shape | Art bible 6.3, 6.4, 8.3 | Needed |
+| 69 | ASSET-069 | Rowing boat | Item | Medium prop for the shore. Pirate Kit candidate, style check needed | Art bible 6.3, 6.4, 8.3 | Needed |
+| 70 | ASSET-070 | Mooring post | Item | Leaning kit timber, weathering by shape | Art bible 6.3, 6.4, 8.3 | Needed |
 | 71 | ASSET-071 | Empty picture frame | Item | Spirit trace; Lumen shimmer in lens view | Art bible 6.3, 6.4, 8.3 | Needed |
 | 72 | ASSET-072 | Small cairn | Item | Spirit trace | Art bible 6.3, 6.4, 8.3 | Needed |
 | 73 | ASSET-073 | Forgotten lens cap | Item | Photographer trace | Art bible 6.3, 6.4, 8.3 | Needed |
-| 74 | ASSET-074 | Darkroom table set | Item | Trays, enlarger, hung prints | Art bible 6.3, 6.4, 8.3 | Needed |
+| 74 | ASSET-074 | Darkroom table set | Item | Table and shelves from Fantasy Props. Enlarger and trays moved to ASSET-172 | Art bible 6.3, 6.4, 8.3 | Needed |
 | 75 | ASSET-075 | Gallery print frame | Item | Wall-mounted print holder | Art bible 6.3, 6.4, 8.3 | Needed |
-| 76 | ASSET-076 | Shop shelf and counter | Item | Gear display | Art bible 6.3, 6.4, 8.3 | Needed |
+| 76 | ASSET-076 | Shop shelf and counter | Item | Gear display from Fantasy Props | Art bible 6.3, 6.4, 8.3 | Needed |
 | 77 | ASSET-077 | Found photo marker | Item | Small Paper White rectangle. Found Photos is Vertical Slice | Art bible 6.3, 6.4, 8.3 | Needed |
-| 78 | ASSET-078 | Grass ground | Environment | Low-contrast seamless ground | Art bible 6.2, 8.6 | Needed |
-| 79 | ASSET-079 | Sand shore | Environment | Low-contrast seamless ground | Art bible 6.2, 8.6 | Needed |
-| 80 | ASSET-080 | Cobble street | Environment | Normal map allowed | Art bible 6.2, 8.6 | Needed |
-| 81 | ASSET-081 | Pier planks | Environment | Normal map allowed | Art bible 6.2, 8.6 | Needed |
-| 82 | ASSET-082 | Darkroom table surface | Environment | Close-up tier | Art bible 6.2, 8.6 | Needed |
-| 83 | ASSET-083 | Gallery wall | Environment | Close-up tier | Art bible 6.2, 8.6 | Needed |
-| 84 | ASSET-084 | Shop surface | Environment | Close-up tier | Art bible 6.2, 8.6 | Needed |
+| 78 | ASSET-078 | Grass ground | Environment | Low-contrast seamless ground, gap fill per 6.2 | Art bible 6.2, 8.6 | Needed |
+| 79 | ASSET-079 | Sand shore | Environment | Low-contrast seamless ground, gap fill per 6.2 | Art bible 6.2, 8.6 | Needed |
+| 80 | ASSET-080 | Cobble street | Environment | Pack `T_Brick` set as a ground layer. Normal map allowed | Art bible 6.2, 8.6 | Needed |
+| 81 | ASSET-081 | Pier planks | Environment | Retired: the pier uses the shared kit wood set | Art bible 6.2, 8.6 | Retired |
+| 82 | ASSET-082 | Darkroom table surface | Environment | Retired: comes with the darkroom table | Art bible 6.2, 8.6 | Retired |
+| 83 | ASSET-083 | Gallery wall | Environment | Retired: the gallery uses the shared kit plaster set | Art bible 6.2, 8.6 | Retired |
+| 84 | ASSET-084 | Shop surface | Environment | Retired: the shop uses the shared kit wood set | Art bible 6.2, 8.6 | Retired |
 | 85 | ASSET-085 | Lens-world post pass | VFX | Depth blur, exposure gain, grain, peaking, grade, vignette in one pass. Needs a decision on the shader-code rule conflict | Camera GDD Visual/Audio; Art bible 8.9 | Needed |
 | 86 | ASSET-086 | Lens-only subject layer | VFX | Spirits draw only in the viewfinder. Cull-mask route is UNVERIFIED | Subject GDD Visual/Audio; Camera GDD | Needed |
 | 87 | ASSET-087 | Subject rim and glow | VFX | Opaque, emissive and rim, driven by glow_permille | Art bible 5.3, 8.5 | Needed |
@@ -137,6 +139,9 @@
 | 101 | ASSET-101 | Darkroom light swatch | VFX | Soft gradient from condition, band and event; never tier colours | Photo Recipe GDD Visual/Audio | Needed |
 | 102 | ASSET-102 | Print reveal | VFX | Print rises out of the swatch like developing paper; no flash | Photo Recipe GDD Visual/Audio | Needed |
 | 103 | ASSET-171 | Title key art | Other | Painterly key art is out of scope for code generation. Not requested by any GDD | Asset-forge scope note | Needed |
+| 104 | ASSET-172 | Enlarger and developing trays | Item | Self-made darkroom props, split from ASSET-074 because no pack has them | Art bible 6.3, 8.10 | Needed |
+| 105 | ASSET-173 | Player ladder climb loop | Animation | Split from ASSET-005. In neither animation library | Movement GDD Visual/Audio | Needed |
+| 106 | ASSET-174 | NPC role props | Item | Hat, apron, satchel, clipboard as rigid parts on bones, split from ASSET-006 to 009 | Art bible 3.3, 5.2 | Needed |
 
 ## UI Screens
 
