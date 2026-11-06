@@ -1167,6 +1167,8 @@ animals, clothing, and darkroom, gallery and shop props. Each needs a route: ano
 free pack, kit-bashing from existing pieces (for example, a lighthouse from stone
 walls and `Roof_Tower_RoundTiles`), or a recipe that follows 3.4's matching rules.
 
+> **Superseded 2026-11-07 (user):** smooth Web play comes first. The build now uses the light Pirate Kit (chibi low-poly, one atlas per model) instead of the detailed Medieval Village, Nature and Universal Character packs. Sections 1 to 8 need a rewrite pass for this. The first budget is skinned vertices on screen.
+
 ### 8.12 Decisions recorded 2026-11-06 (user)
 
 - Outfits: download free outfit packs and compare.
